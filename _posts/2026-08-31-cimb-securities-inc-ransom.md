@@ -10,6 +10,11 @@ tags: [ransomware, cimb, malaysia, inc-ransom, data-breach, financial-services]
 
 The ransomware group INC Ransom has reportedly listed CIMB Securities on its data-leak site, claiming to have compromised the Malaysian stockbroking firm.
 
+<figure>
+  <img src="/assets/img/figure1-data-leak-site.jpg" alt="Figure 1. Data Leak Site" style="max-width:100%; height:auto;" />
+  <figcaption>Figure 1. Data Leak Site</figcaption>
+</figure>
+
 ## Incident Details
 
 The listing was observed on 31 August 2026 and identifies:
