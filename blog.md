@@ -23,7 +23,7 @@ The threat actor has also published a screenshot that appears to contain Malaysi
 
 ⚠️ **Caveat**: This is currently an unverified threat-actor claim and has not been independently confirmed.
 
-[Read full post →]({{ site.baseurl }}/_posts/2026-08-31-cimb-securities-inc-ransom/)
+[Read full post →](/2026/08/31/cimb-securities-inc-ransom/)
 
 **Tags**: #CyberSecurity #Ransomware #CIMB #Malaysia #ThreatIntelligence #INCRansom #DataBreach #FinancialServices
 
