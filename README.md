@@ -1,3 +1,7 @@
+---
+title: Amirul Cyber
+---
+
 # Welcome
 
 Hello! I'm **Amirul Iman**, a cybersecurity researcher passionate about security research and technology in South East Asia.
