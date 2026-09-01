@@ -39,6 +39,19 @@
     </style>
 
 {%- comment -%}
+  Link-preview title: "Page Title - Amirul Cyber" (site name appended), except
+  the home page which is already "Amirul Cyber". Emitted BEFORE {% seo %} so it
+  wins over jekyll-seo-tag's plain page title.
+{%- endcomment -%}
+{%- if page.title and page.title != site.title -%}
+  {%- assign og_title = page.title | append: ' - ' | append: site.title -%}
+{%- else -%}
+  {%- assign og_title = site.title -%}
+{%- endif -%}
+<meta property="og:title" content="{{ og_title }}">
+<meta name="twitter:title" content="{{ og_title }}">
+
+{%- comment -%}
   Post link-preview image: use the first <img> in the body. Emitted BEFORE
   {% seo %} so it wins over jekyll-seo-tag's site-wide default (og-card).
 {%- endcomment -%}
