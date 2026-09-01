@@ -38,14 +38,10 @@
       .site-title-link:hover { color: #fff; }
     </style>
 
-{% seo %}
-
 {%- comment -%}
-  Link-preview image: for posts use the first <img> in the body, else the
-  branded site card. jekyll-seo-tag does not auto-extract from content, so
-  we emit og:image / twitter:image ourselves.
+  Post link-preview image: use the first <img> in the body. Emitted BEFORE
+  {% seo %} so it wins over jekyll-seo-tag's site-wide default (og-card).
 {%- endcomment -%}
-{%- assign og_image = nil -%}
 {%- if page.collection == 'posts' -%}
   {%- assign og_parts = content | split: '<img' -%}
   {%- if og_parts.size > 1 -%}
@@ -54,12 +50,13 @@
       {%- assign og_image = og_src[1] | split: '"' | first -%}
     {%- endif -%}
   {%- endif -%}
+  {%- if og_image -%}
+    <meta property="og:image" content="{{ og_image | absolute_url }}">
+    <meta name="twitter:image" content="{{ og_image | absolute_url }}">
+  {%- endif -%}
 {%- endif -%}
-{%- unless og_image -%}
-  {%- assign og_image = '/assets/img/og-card.jpg' -%}
-{%- endunless -%}
-<meta property="og:image" content="{{ og_image | absolute_url }}">
-<meta name="twitter:image" content="{{ og_image | absolute_url }}">
+
+{% seo %}
 
 {% include head-custom.html %}
   </head>
