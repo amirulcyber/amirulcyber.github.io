@@ -1,6 +1,21 @@
 theme: jekyll-theme-merlot
 title: Amirul Cyber
 description: CyberSec | Research | South East Asia
+url: https://amirulcyber.github.io
+
+# Open Graph image defaults. WhatsApp (and Telegram) will NOT render a
+# link-preview card without og:image; Twitter uses it for large cards.
+# Absolute URL is derived from `url` above by jekyll-seo-tag.
+defaults:
+  - scope:
+      path: ""
+    values:
+      image:
+        path: /assets/img/og-card.jpg
+        width: 1200
+        height: 630
+      twitter:
+        card: summary_large_image
 
 # Clean, predictable post URLs: /YYYY/MM/DD/slug/
 # Jekyll's default permalink expands `categories` into the URL
