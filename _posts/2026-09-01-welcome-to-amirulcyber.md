@@ -20,11 +20,11 @@ This blog covers:
 
 You can find me at:
 - 🌐 [amirulcyber.carrd.co](https://amirulcyber.carrd.co)
-- 🐙 [GitHub](https://github.com/amirulcyber)
+- 💻 [GitHub](https://github.com/amirulcyber)
 - 𝕏 [Twitter](https://twitter.com/amirulcyber)
 
 Feel free to reach out if you have any questions or collaboration ideas!
 
 ---
 
-Stay secure! 🔐
+Stay secure! 🔒

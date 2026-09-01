@@ -1,5 +1,4 @@
 # The Site Configuration
-# Import the theme
 theme: jekyll-theme-chirpy
 
 # The language of the website
@@ -15,20 +14,23 @@ description: >-
 # Set the site's domain
 url: 'https://amirulcyber.github.io'
 
-# If you want to force HTTPS, remember that the GitHub page
-# will use 'https' as the protocol when you visit `https://USERNAME.github.io`
-# and the protocol of this config has the same. If you want to force 'https'
-# redirect with other urls, you can set `redirect_from` for those urls in the front matter
+# BaseURL for subfolders
+baseurl: ''
+
+# Force HTTPS
 ssl: true
 
-# the avatar on sidebar, support local or CORS resources
+# the avatar on sidebar
 avatar: 'https://avatars.githubusercontent.com/u/amirulcyber?v=4'
+
+# Site author
+author: Amirul Cyber
+contact_email: contact@amirulcyber.com
 
 # boolean type, the global switch for ToC in posts.
 toc: true
 
 # Self comments (visit https://utteranc.es for more info)
-# You can choose the following options: disqus | utterances | giscus
 comments:
   active: utterances
   utterances:
@@ -39,20 +41,13 @@ comments:
 # Paginate settings
 paginate: 10
 
-# the value used to fill the head tag `og:image`
-img_cdn:
-
 # the avatar on sidebar, support local or CORS resources
 avatar_alt: 'Amirul Cyber'
-
-# boolean type, the global switch for ToC in posts.
-toc: true
 
 posts_last_modified_at:
   date_format: '%b %d, %Y'
 
-# Uncomment the following line to use the Dark Mode Toggle,
-# or remove it to use the system preference.
+# Uncomment the following line to use the Dark Mode Toggle
 theme_mode: # [light | dark]
 
 markdown: kramdown
@@ -61,37 +56,68 @@ kramdown:
   syntax_highlighter_opts:
     css_class: highlight
 
-search:
-  input:
-    locales:
-      en: input.placeholder
-      # ... other locales
-
 # Social media and contact links
 social:
-  # Change to your full name.
-  # It will be displayed as the copyright owner in Footer
   name: Amirul Cyber
-  email: contact@amirulcyber.com # change to your email address
+  email: contact@amirulcyber.com
   links:
-    # The first element serves as the copyright owner's link
     - https://amirulcyber.carrd.co
-    - https://twitter.com/amirulcyber # change to your twitter homepage
-    - https://github.com/amirulcyber # change to your github homepage
-    # Uncomment below to add more social links
-    # - https://www.facebook.com/username
-    # - https://www.linkedin.com/in/username
+    - https://twitter.com/amirulcyber
+    - https://github.com/amirulcyber
 
 github:
-  username: amirulcyber # change to your github username
+  username: amirulcyber
 
 twitter:
-  username: amirulcyber # change to your twitter username
+  username: amirulcyber
 
-# Only if your site type is GitHub Pages, this can be ignored.
-baseurl: ''
+# Timezone
+timezone: Asia/Kuala_Lumpur
 
-# will be used by `jekyll-sitemap` to generate the last modified time
-# of the page in the sitemap. You can find similar results in search engines.
-last_modified_at:
-  date_format: '%b %d, %Y'
+# Collections
+collections:
+  tabs:
+    output: true
+    sort_by: order
+
+defaults:
+  - scope:
+      path: ''
+      type: posts
+    values:
+      layout: post
+      comments: true
+      toc: true
+      permalink: /posts/:title/
+  - scope:
+      path: '_drafts'
+      type: posts
+    values:
+      comments: false
+  - scope:
+      path: ''
+      type: tabs
+    values:
+      layout: page
+      permalink: /:title/
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-redirect-from
+  - jekyll-seo-tag
+  - jekyll-archives
+  - jekyll-sitemap
+  - jekyll-include-cache
+
+exclude:
+  - '*.gem'
+  - '*.gemspec'
+  - tools
+  - docs
+  - README.md
+  - CHANGELOG.md
+  - LICENSE
+  - gulpfile.js
+  - node_modules
+  - package*.json
