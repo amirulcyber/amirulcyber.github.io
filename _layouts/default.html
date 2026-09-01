@@ -24,6 +24,7 @@
         background: #7c334f;
         text-align: center;
         padding: 10px 0;
+        border-top: 1px solid #cd596b;
       }
       .site-nav a {
         color: #ece4d8;
@@ -51,18 +52,17 @@
           <div class="ribbon-inner">
             <h1><a class="site-title-link" href="{{ '/' | relative_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
             <h2>{{ site.description | default: site.github.project_tagline }}</h2>
+            <nav class="site-nav">
+              <a href="{{ '/' | relative_url }}">Home</a>
+              <a href="{{ '/blog/' | relative_url }}">Blog</a>
+              <a href="{{ '/about/' | relative_url }}">About</a>
+              <a href="{{ '/tags/' | relative_url }}">Tags</a>
+            </nav>
           </div>
           <span class="left-tail"></span>
           <span class="right-tail"></span>
         </div>
       </header>
-
-      <nav class="site-nav">
-        <a href="{{ '/' | relative_url }}">Home</a>
-        <a href="{{ '/blog/' | relative_url }}">Blog</a>
-        <a href="{{ '/about/' | relative_url }}">About</a>
-        <a href="{{ '/tags/' | relative_url }}">Tags</a>
-      </nav>
 
       {% if site.show_downloads %}
         <section id="downloads">
