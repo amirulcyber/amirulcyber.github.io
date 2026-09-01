@@ -1,0 +1,97 @@
+# The Site Configuration
+# Import the theme
+theme: jekyll-theme-chirpy
+
+# The language of the website
+lang: en
+
+# Set the site's title <title>
+title: Amirul Cyber
+
+# Set the site's description
+description: >-
+  CyberSec | Research | South East Asia
+
+# Set the site's domain
+url: 'https://amirulcyber.github.io'
+
+# If you want to force HTTPS, remember that the GitHub page
+# will use 'https' as the protocol when you visit `https://USERNAME.github.io`
+# and the protocol of this config has the same. If you want to force 'https'
+# redirect with other urls, you can set `redirect_from` for those urls in the front matter
+ssl: true
+
+# the avatar on sidebar, support local or CORS resources
+avatar: 'https://avatars.githubusercontent.com/u/amirulcyber?v=4'
+
+# boolean type, the global switch for ToC in posts.
+toc: true
+
+# Self comments (visit https://utteranc.es for more info)
+# You can choose the following options: disqus | utterances | giscus
+comments:
+  active: utterances
+  utterances:
+    repo: amirulcyber/amirulcyber.github.io
+    issue_term: pathname
+    theme: preferred-color-scheme
+
+# Paginate settings
+paginate: 10
+
+# the value used to fill the head tag `og:image`
+img_cdn:
+
+# the avatar on sidebar, support local or CORS resources
+avatar_alt: 'Amirul Cyber'
+
+# boolean type, the global switch for ToC in posts.
+toc: true
+
+posts_last_modified_at:
+  date_format: '%b %d, %Y'
+
+# Uncomment the following line to use the Dark Mode Toggle,
+# or remove it to use the system preference.
+theme_mode: # [light | dark]
+
+markdown: kramdown
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: highlight
+
+search:
+  input:
+    locales:
+      en: input.placeholder
+      # ... other locales
+
+# Social media and contact links
+social:
+  # Change to your full name.
+  # It will be displayed as the copyright owner in Footer
+  name: Amirul Cyber
+  email: contact@amirulcyber.com # change to your email address
+  links:
+    # The first element serves as the copyright owner's link
+    - https://amirulcyber.carrd.co
+    - https://twitter.com/amirulcyber # change to your twitter homepage
+    - https://github.com/amirulcyber # change to your github homepage
+    # Uncomment below to add more social links
+    # - https://www.facebook.com/username
+    # - https://www.linkedin.com/in/username
+
+github:
+  username: amirulcyber # change to your github username
+
+twitter:
+  username: amirulcyber # change to your twitter username
+
+# Only if your site type is GitHub Pages, this can be ignored.
+baseurl: ''
+
+# will be used by `jekyll-sitemap` to generate the last modified time
+# of the page in the sitemap. You can find similar results in search engines.
+last_modified_at:
+  date_format: '%b %d, %Y'
