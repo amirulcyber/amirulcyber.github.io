@@ -1,5 +1,6 @@
 ---
 title: Welcome to Amirul Cyber
+description: Welcome to Amirul Cyber — a blog covering cybersecurity research, threat intelligence, and technology in South East Asia.
 date: 2026-09-01 12:00:00 +0800
 categories: [Personal, Welcome]
 tags: [blog, cybersecurity, research]

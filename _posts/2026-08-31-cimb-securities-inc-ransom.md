@@ -1,5 +1,6 @@
 ---
 title: CIMB Securities Reportedly Claimed by INC Ransom
+description: INC Ransom has listed Malaysian stockbroking firm CIMB Securities on its dark-web leak site. First-hand verification over Tor confirms the listing, a redacted identity-card proof, and an encrypted archive that is prepared but not yet published. No deadline or demand has been posted.
 date: 2026-08-31 00:00:00 +0800
 permalink: /2026/08/31/cimb-securities-inc-ransom/
 categories: [Cybersecurity, Threat Intelligence]

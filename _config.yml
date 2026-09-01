@@ -3,17 +3,14 @@ title: Amirul Cyber
 description: CyberSec | Research | South East Asia
 url: https://amirulcyber.github.io
 
-# Open Graph image defaults. WhatsApp (and Telegram) will NOT render a
-# link-preview card without og:image; Twitter uses it for large cards.
-# Absolute URL is derived from `url` above by jekyll-seo-tag.
+# Link-preview cards. WhatsApp/Telegram need og:image; Twitter needs a large
+# card type. og:image is emitted in _layouts/default.html (first image of a
+# post, else /assets/img/og-card.jpg) because jekyll-seo-tag can't auto-extract
+# from post content. Absolute URLs derive from `url` above.
 defaults:
   - scope:
       path: ""
     values:
-      image:
-        path: /assets/img/og-card.jpg
-        width: 1200
-        height: 630
       twitter:
         card: summary_large_image
 
