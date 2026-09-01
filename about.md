@@ -1,8 +1,6 @@
 ---
 layout: page
 title: About
-icon: fas fa-circle-info
-order: 4
 ---
 
 # About Amirul Cyber
