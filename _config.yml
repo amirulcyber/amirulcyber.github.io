@@ -1,3 +1,9 @@
 theme: jekyll-theme-merlot
 title: Amirul Cyber
 description: CyberSec | Research | South East Asia
+
+# Clean, predictable post URLs: /YYYY/MM/DD/slug/
+# Jekyll's default permalink expands `categories` into the URL
+# (e.g. /cybersecurity/threat-intelligence/2026/08/31/slug.html),
+# which broke the "Read full post" links -> 404.
+permalink: /:year/:month/:day/:title/
