@@ -2,6 +2,7 @@
 title: "Two Critical Access-Control Flaws in a Financial Institution's Mortgage Portal"
 description: "Amirul Cyber's vulnerability research on a Malaysian financial institution's mortgage portal surfaced two Critical access-control flaws exposing full identity, bank, and property data."
 date: 2026-09-08 00:00:00 +0800
+permalink: /2026/09/08/two-critical-access-control-flaws-financial-mortgage-portal/
 categories: [Cybersecurity, Vulnerability Research]
 tags: [broken-access-control, idor, spring-security, financial-services, malaysia, pdpa, responsible-disclosure]
 ---

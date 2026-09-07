@@ -2,6 +2,7 @@ theme: jekyll-theme-merlot
 title: Amirul Cyber
 description: CyberSec | Research | South East Asia
 url: https://amirulcyber.github.io
+timezone: Asia/Kuala_Lumpur
 
 # Link-preview cards. WhatsApp/Telegram need og:image; Twitter uses a large
 # card when an image is present. The site-wide image below is the fallback;
