@@ -52,17 +52,21 @@
 <meta name="twitter:title" content="{{ og_title }}">
 
 {%- comment -%}
-  Post link-preview image: use the first <img> in the body. Emitted BEFORE
-  {% seo %} so it wins over jekyll-seo-tag's site-wide default (og-card).
+  Post link-preview image: use the post's `image:` front matter if set,
+  otherwise the first <img> in the body. Emitted BEFORE {% seo %} so it wins
+  over jekyll-seo-tag's site-wide default (og-card).
 {%- endcomment -%}
 {%- if page.collection == 'posts' -%}
-  {%- assign og_parts = content | split: '<img' -%}
-  {%- if og_parts.size > 1 -%}
-    {%- assign og_src = og_parts[1] | split: 'src="' -%}
-    {%- if og_src.size > 1 -%}
-      {%- assign og_image = og_src[1] | split: '"' | first -%}
+  {%- assign og_image = page.image -%}
+  {%- unless og_image -%}
+    {%- assign og_parts = content | split: '<img' -%}
+    {%- if og_parts.size > 1 -%}
+      {%- assign og_src = og_parts[1] | split: 'src="' -%}
+      {%- if og_src.size > 1 -%}
+        {%- assign og_image = og_src[1] | split: '"' | first -%}
+      {%- endif -%}
     {%- endif -%}
-  {%- endif -%}
+  {%- endunless -%}
   {%- if og_image -%}
     <meta property="og:image" content="{{ og_image | absolute_url }}">
     <meta name="twitter:image" content="{{ og_image | absolute_url }}">
