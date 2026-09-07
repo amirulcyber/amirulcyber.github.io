@@ -97,7 +97,7 @@ on how your applications enforce access control in practice. Amirul Cyber offers
 services on security assessment and penetration testing**: scoped, evidence-led, and report-driven,
 with findings mapped to the regulatory obligations that matter to your business.
 
-Interested in validating your security posture? **[Contact us](https://amirulcyber.github.io)** —
+Interested in validating your security posture? **[Contact us](https://amirulcyber.com)** —
 or reach us via [amirulcyber.carrd.co](https://amirulcyber.carrd.co).
 
 ---

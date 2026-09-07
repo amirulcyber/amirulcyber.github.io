@@ -1,12 +1,12 @@
 # Amirul Cyber — Cybersecurity Research Blog
 
-Source repository for [amirulcyber.github.io](https://amirulcyber.github.io) — a blog covering cybersecurity research, threat intelligence, and technology in South East Asia.
+Source repository for [amirulcyber.com](https://amirulcyber.com) — a blog covering cybersecurity research, threat intelligence, and technology in South East Asia.
 
 ## Links
 
-- 🌐 [Blog](https://amirulcyber.github.io/blog/)
-- 👤 [About](https://amirulcyber.github.io/about/)
-- 🏷️ [Tags](https://amirulcyber.github.io/tags/)
+- 🌐 [Blog](https://amirulcyber.com/blog/)
+- 👤 [About](https://amirulcyber.com/about/)
+- 🏷️ [Tags](https://amirulcyber.com/tags/)
 
 ## Stack
 
