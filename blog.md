@@ -11,6 +11,18 @@ All my latest cybersecurity research, threat intelligence, and technology insigh
 
 ## Recent Posts
 
+### 🔓 Two Critical Access-Control Flaws in a Financial Institution's Mortgage Portal
+
+**Date**: 8 September 2026 | **Categories**: Cybersecurity, Vulnerability Research
+
+Amirul Cyber's vulnerability research on a Malaysian financial institution's mortgage portal surfaced two Critical access-control flaws exposing full identity, bank, and property data.
+
+[Read full post →](/2026/09/08/two-critical-access-control-flaws-financial-mortgage-portal/)
+
+**Tags**: #BrokenAccessControl #IDOR #SpringSecurity #FinancialServices #Malaysia #PDPA #ResponsibleDisclosure
+
+---
+
 ### 🚨 CIMB Securities Reportedly Claimed by INC Ransom 🇲🇾
 
 **Date**: 31 August 2026 | **Categories**: Cybersecurity, Threat Intelligence
