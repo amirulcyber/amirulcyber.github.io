@@ -1,6 +1,7 @@
 ---
 title: "Two Critical Access-Control Flaws in a Financial Institution's Mortgage Portal"
 description: "Amirul Cyber's vulnerability research on a Malaysian financial institution's mortgage portal surfaced two Critical access-control flaws exposing full identity, bank, and property data."
+image: /assets/img/figure1-redacted-customer-data.jpg
 date: 2026-09-08 00:00:00 +0800
 permalink: /2026/09/08/two-critical-access-control-flaws-financial-mortgage-portal/
 categories: [Cybersecurity, Vulnerability Research]
@@ -15,6 +16,10 @@ financial institution's digital mortgage-application portal — and surfaced **t
 access-control flaws** that, together, exposed **more than 100 account records** and **more than 20
 complete mortgage applications** to unauthenticated or low-privilege callers. The data at risk
 included full identity, bank account, and property details.
+
+![Redacted excerpt of the customer data exposed through the broken access control](/assets/img/figure1-redacted-customer-data.jpg)
+
+*Figure 1 — Redacted sample of the customer data exposed by the broken access control.*
 
 ## Finding 1 — Unauthenticated read of the account-management API (Critical)
 
