@@ -1,0 +1,10 @@
+<div class="stat-strip">
+{% assign stats = include.stats | split: ';' %}
+{% for stat in stats %}
+  {% assign pair = stat | split: '|' %}
+  <div class="stat">
+    <strong>{{ pair[0] }}</strong>
+    <span>{{ pair[1] }}</span>
+  </div>
+{% endfor %}
+</div>

@@ -1,0 +1,5 @@
+<div class="country-tabs" role="tablist" aria-label="Countries">
+{% for country in site.data.countries %}
+  <a class="country-tab stage-{{ country.stage | downcase }}" href="#{{ country.id }}">{{ country.name }}</a>
+{% endfor %}
+</div>

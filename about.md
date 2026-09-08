@@ -1,23 +1,23 @@
 ---
-layout: default
+layout: article
 title: About
+permalink: /about/
 ---
+## About Amirul Cyber
 
-# About Amirul Cyber
+Hello! I'm a cybersecurity researcher and technologist based in South East Asia, focused on security research, threat intelligence, and emerging technologies.
 
-Hello! I'm a cybersecurity researcher and technologist based in South East Asia, with a passion for security research, threat analysis, and emerging technologies.
+### Focus Areas
 
-## Focus Areas
+- **Cybersecurity Research** — threat intelligence, vulnerability analysis, and security architecture
+- **Technical Research** — deep dives into emerging security technologies and methodologies
+- **Regional Technology** — technology trends and security insights specific to South East Asia
 
-- 🔐 **Cybersecurity Research** - Threat intelligence, vulnerability analysis, and security architecture
-- 🧪 **Technical Research** - Deep dives into emerging security technologies and methodologies
-- 🌏 **Regional Technology** - Technology trends and security insights specific to South East Asia
-
-## Background
+### Background
 
 With a background in cybersecurity and technology research, I focus on understanding complex security challenges and sharing knowledge with the broader security community.
 
-## Let's Connect
+### Let's Connect
 
 - **Website**: [amirulcyber.carrd.co](https://amirulcyber.carrd.co)
 - **GitHub**: [github.com/amirulcyber](https://github.com/amirulcyber)

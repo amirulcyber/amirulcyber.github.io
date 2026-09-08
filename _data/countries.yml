@@ -1,0 +1,337 @@
+- id: singapore
+  name: Singapore
+  stage: Established
+  rank: 63
+  groups:
+    - key: legal
+      label: Legal
+      items:
+        - Licensed digital-payment-token services operate under a dedicated regime.
+        - Foreign platforms face restrictions on marketing and solicitation.
+    - key: safe
+      label: Safe
+      items:
+        - The rulebook has tightened incrementally for several years.
+        - Licensing emphasizes compliance capacity as well as capital.
+    - key: yours
+      label: Yours
+      items:
+        - Casual capital gains can receive different treatment from business activity.
+        - Self-custody remains distinct from regulated platform activity.
+  history:
+    - date: 2019
+      title: Payment Services Act passed
+      tag: Legal
+      text: A dedicated licensing framework established the modern regime.
+    - date: 2025–26
+      title: Overseas rules and stablecoin policy tightened
+      tag: Legal
+      text: The framework continued moving from broad policy toward enforceable requirements.
+  table:
+    hold: Yes
+    cost: Depends on activity and tax treatment
+    buy: Licensed exchanges
+    spend: Limited
+
+- id: thailand
+  name: Thailand
+  stage: Established
+  rank: 17
+  groups:
+    - key: legal
+      label: Legal
+      items:
+        - Digital-asset businesses operate under a dedicated licensing framework.
+        - Offshore platforms serving local users can also fall within the regulatory perimeter.
+    - key: safe
+      label: Safe
+      items:
+        - Licensing provides a formal recourse path, but does not remove operational risk.
+        - Enforcement has included platform blocks and license actions.
+    - key: yours
+      label: Yours
+      items:
+        - Tax treatment differs between trading and yield.
+        - Self-custody remains outside the main exchange licensing layer.
+  history:
+    - date: 2018
+      title: Digital-asset framework established
+      tag: Legal
+      text: Thailand became one of the region's early dedicated crypto-regulation markets.
+    - date: 2025–26
+      title: Foreign-platform enforcement expanded
+      tag: Safe
+      text: The regulatory perimeter widened to platforms serving Thai users from abroad.
+  table:
+    hold: Yes
+    cost: Varies by activity
+    buy: Licensed exchanges
+    spend: Limited
+
+- id: philippines
+  name: Philippines
+  stage: Established
+  rank: 9
+  groups:
+    - key: legal
+      label: Legal
+      items:
+        - Virtual-asset businesses can enter through established licensing tracks.
+        - New-license availability has been constrained by a long-running moratorium.
+    - key: safe
+      label: Safe
+      items:
+        - Licensed operators provide a formal compliance and recourse layer.
+        - Existing operators remain subject to supervision and enforcement.
+    - key: yours
+      label: Yours
+      items:
+        - Stablecoins have a strong remittance use case.
+        - Digital-asset taxation generally follows ordinary income rules.
+  history:
+    - date: 2017
+      title: Early virtual-asset registration framework
+      tag: Legal
+      text: The Philippines established one of ASEAN's earlier formal regimes.
+    - date: 2025–26
+      title: Licensing and stablecoin infrastructure evolved
+      tag: Legal
+      text: The market continued to develop around payments, remittances and regulated platforms.
+  table:
+    hold: Yes
+    cost: Ordinary tax treatment
+    buy: Local licensed exchanges
+    spend: More developed
+
+- id: malaysia
+  name: Malaysia
+  stage: Established
+  rank: 42
+  groups:
+    - key: legal
+      label: Legal
+      items:
+        - Digital-asset exchanges operate under securities regulation.
+        - Unlicensed platforms can be blocked from local users.
+    - key: safe
+      label: Safe
+      items:
+        - Requirements have tightened through successive regulatory updates.
+        - Licensed operators have a formal supervisory framework.
+    - key: yours
+      label: Yours
+      items:
+        - Tax treatment can depend on whether activity resembles a trading business.
+        - Self-custody is different from regulated custody or exchange activity.
+  history:
+    - date: 2019
+      title: Digital-asset exchanges brought into a licensing regime
+      tag: Legal
+      text: Malaysia established a regulated path for recognized exchange operators.
+    - date: 2026
+      title: Capital and custody requirements tightened
+      tag: Safe
+      text: New requirements raised the operational bar for registered operators.
+  table:
+    hold: Yes
+    cost: Activity-dependent
+    buy: Licensed exchanges or P2P
+    spend: Limited
+
+- id: indonesia
+  name: Indonesia
+  stage: Established
+  rank: 3
+  groups:
+    - key: legal
+      label: Legal
+      items:
+        - Crypto is treated as an asset rather than legal tender.
+        - Trading operates inside a formal supervisory and tax framework.
+    - key: safe
+      label: Safe
+      items:
+        - Local platforms operate under an increasingly mature regime.
+        - Token availability can be constrained by approved-asset lists.
+    - key: yours
+      label: Yours
+      items:
+        - Tax is increasingly collected at the transaction layer.
+        - Stablecoin and institutional experiments are moving beyond pure retail trading.
+  history:
+    - date: 2019–24
+      title: Formal exchange market expanded
+      tag: Legal
+      text: Local exchanges and asset rules developed into a significant regional market.
+    - date: 2025–26
+      title: Oversight and tax collection matured
+      tag: Safe
+      text: The regulatory center of gravity moved toward more direct supervision.
+  table:
+    hold: Yes
+    cost: Transaction-level tax
+    buy: Local exchanges
+    spend: Limited
+
+- id: vietnam
+  name: Vietnam
+  stage: Recent
+  rank: 5
+  groups:
+    - key: legal
+      label: Legal
+      items:
+        - A formal digital-asset framework is relatively new.
+        - Implementation is still developing.
+    - key: safe
+      label: Safe
+      items:
+        - The market is transitioning from a long regulatory gap to formal oversight.
+        - Consumer protections will depend on how the new framework is implemented.
+    - key: yours
+      label: Yours
+      items:
+        - Tax treatment is becoming more explicit.
+        - Licensed-market infrastructure is still being built out.
+  history:
+    - date: 2026
+      title: Formal trading framework begins
+      tag: Legal
+      text: A new regime starts turning a previously uncertain market into a regulated one.
+  table:
+    hold: Yes
+    cost: New tax framework
+    buy: Emerging licensed market
+    spend: Limited
+
+- id: cambodia
+  name: Cambodia
+  stage: Recent
+  rank: 20
+  groups:
+    - key: legal
+      label: Legal
+      items:
+        - Rules distinguish regulated digital assets from unsupported crypto activity.
+        - Banks and payment infrastructure remain central to the official path.
+    - key: safe
+      label: Safe
+      items:
+        - The formal market is shaped heavily by banking and payment regulation.
+        - Offshore access can face network-level restrictions.
+    - key: yours
+      label: Yours
+      items:
+        - Stablecoin use has a narrower official path than domestic digital payments.
+        - Tax treatment is becoming more explicit.
+  history:
+    - date: 2025–26
+      title: Digital-asset boundaries sharpen
+      tag: Legal
+      text: The regulated perimeter increasingly distinguishes approved use from offshore activity.
+  table:
+    hold: Depends
+    cost: Tax may apply
+    buy: Regulated channels
+    spend: Limited
+
+- id: laos
+  name: Laos
+  stage: Thin
+  rank: 74
+  groups:
+    - key: legal
+      label: Legal
+      items:
+        - A small number of licensed operators form the core of the formal market.
+        - Currency controls are as important as crypto-specific rules.
+    - key: safe
+      label: Safe
+      items:
+        - The market is thin and highly concentrated.
+        - Formal infrastructure is still limited.
+    - key: yours
+      label: Yours
+      items:
+        - Personal tax treatment is less clearly defined.
+        - Licensed banking channels remain important for fiat movement.
+  history:
+    - date: 2021–26
+      title: Crypto used as a debt and investment policy tool
+      tag: Safe
+      text: Mining and exchange initiatives have appeared alongside tight currency constraints.
+  table:
+    hold: Technically
+    cost: Unclear
+    buy: Limited licensed venues
+    spend: Very limited
+
+- id: myanmar
+  name: Myanmar
+  stage: Thin
+  rank: 90
+  groups:
+    - key: legal
+      label: Legal
+      items:
+        - Private crypto trading is prohibited under the formal regime.
+        - Underground usage continues despite the prohibition.
+    - key: safe
+      label: Safe
+      items:
+        - Users face substantial legal and counterparty risk outside the banking system.
+        - Formal consumer protections are absent.
+    - key: yours
+      label: Yours
+      items:
+        - Self-custody does not remove legal exposure.
+        - Informal stablecoin markets can operate outside formal rails.
+  history:
+    - date: 2020
+      title: Broad crypto ban
+      tag: Legal
+      text: Authorities prohibited crypto activity under the formal financial system.
+    - date: 2025–26
+      title: Parallel markets persist
+      tag: Safe
+      text: Informal stablecoin use continued alongside efforts to strengthen state control of digital money.
+  table:
+    hold: No
+    cost: N/A
+    buy: Informal only
+    spend: Informal only
+
+- id: brunei
+  name: Brunei
+  stage: Thin
+  rank: 124
+  groups:
+    - key: legal
+      label: Legal
+      items:
+        - Crypto is not legal tender and has not been given a dedicated licensing framework.
+        - Official warnings emphasize the lack of regulatory protection.
+    - key: safe
+      label: Safe
+      items:
+        - Users largely rely on whatever protections foreign platforms provide.
+        - Local fintech policy has focused more broadly on blockchain than retail crypto.
+    - key: yours
+      label: Yours
+      items:
+        - There is little local tax guidance specific to crypto.
+        - Questions around Sharia compliance remain open.
+  history:
+    - date: 2017
+      title: Public warning issued
+      tag: Legal
+      text: The central bank warned that cryptocurrency is not legal tender and is not regulated.
+    - date: 2025–26
+      title: Digital-asset framework assessed
+      tag: Legal
+      text: Authorities began exploring how a future framework might address digital assets and Sharia considerations.
+  table:
+    hold: Not prohibited
+    cost: No specific local rule
+    buy: Foreign platforms
+    spend: Platform-dependent

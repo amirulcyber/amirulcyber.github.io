@@ -1,56 +1,86 @@
 ---
-layout: default
-title: Amirul Cyber
+layout: article
+title: "Mapping ASEAN's crypto scene"
+eyebrow: "Prying"
+date: 2026-08-25
+updated: 2026-09-07
+description: "A reusable long-form editorial layout for maps, policy explainers and data-heavy reporting."
 ---
 
-# Welcome
+ASEAN has ten different regulatory regimes, so a regional story works best when the reader can move between countries without losing the narrative.
 
-Hello! I'm **Amirul Iman**, a cybersecurity researcher passionate about security research and technology in South East Asia.
+{% include stat-strip.html stats="69%|Asia-Pacific crypto growth to June 2025;103%|Indonesia growth over the same period;10|Countries mapped" %}
 
-## What This Blog Is About
+## Southeast Asia's crypto scene
 
-- **Cybersecurity**: Security research, threat analysis, and defensive strategies
-- **Research**: Technical deep dives and case studies
-- **Regional Focus**: Technology trends and security insights from South East Asia
+{% include country-tabs.html %}
 
-## Recent Posts
+{% for country in site.data.countries %}
+<section class="country-panel" id="{{ country.id }}">
+  <div class="country-heading">
+    <div>
+      <span class="kicker">{{ country.stage }}</span>
+      <h3>{{ country.name }}</h3>
+    </div>
+    <span class="rank">#{{ country.rank }} Crypto Adoption</span>
+  </div>
 
-### 🔓 Two Critical Access-Control Flaws in a Financial Institution's Mortgage Portal
+  <div class="status-grid">
+    {% for group in country.groups %}
+    <div class="status-card status-{{ group.key }}">
+      <h4>{{ group.label }}</h4>
+      <ul>
+        {% for item in group.items %}
+        <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
 
-**Date**: 8 September 2026 | **Categories**: Cybersecurity, Vulnerability Research
+  <div class="timeline">
+    <h4>History</h4>
+    {% for event in country.history %}
+    <article class="timeline-item">
+      <div class="timeline-date">{{ event.date }}</div>
+      <div>
+        <strong>{{ event.title }}</strong>
+        <span class="badge badge-{{ event.tag }}">{{ event.tag }}</span>
+        <p>{{ event.text }}</p>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endfor %}
 
-Amirul Cyber's vulnerability research on a Malaysian financial institution's mortgage portal surfaced two Critical access-control flaws exposing full identity, bank, and property data.
+## What can you actually do?
 
-[Read full post →](/2026/09/08/two-critical-access-control-flaws-financial-mortgage-portal/)
+<div class="table-scroll">
+<table class="comparison">
+<thead>
+<tr><th>Country</th><th>Hold it?</th><th>What it costs</th><th>Where to buy</th><th>Spend it?</th></tr>
+</thead>
+<tbody>
+{% for country in site.data.countries %}
+<tr>
+<td><strong>{{ country.name }}</strong></td>
+<td>{{ country.table.hold }}</td>
+<td>{{ country.table.cost }}</td>
+<td>{{ country.table.buy }}</td>
+<td>{{ country.table.spend }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
 
-**Tags**: #BrokenAccessControl #IDOR #SpringSecurity #FinancialServices #Malaysia #PDPA #ResponsibleDisclosure
+## What this means for you
 
----
+This theme is designed for a strong editorial conclusion: summarize the pattern, explain the practical implication, then point readers toward sources and methodology.
 
-### 🚨 CIMB Securities Reportedly Claimed by INC Ransom 🇲🇾
+> The visual language stays deliberately light: paper-white surfaces, thin rules, restrained color, generous whitespace and compact data labels.
 
-**Date**: 31 August 2026 | **Categories**: Cybersecurity, Threat Intelligence
+## Methodology
 
-The ransomware group INC Ransom has reportedly listed CIMB Securities on its data-leak site, claiming to have compromised the Malaysian stockbroking firm.
-
-**Victim**: cimbsecurities[.]com | **Sector**: Financial Services | **Country**: Malaysia
-
-⚠️ **Caveat**: This is currently an unverified threat-actor claim and has not been independently confirmed.
-
-[Read full post →](/2026/08/31/cimb-securities-inc-ransom/)
-
-**Tags**: #CyberSecurity #Ransomware #CIMB #Malaysia #ThreatIntelligence #INCRansom #DataBreach #FinancialServices
-
----
-
-[View all posts →](/blog/)
-
-## Let's Connect
-
-- 🌐 [Website](https://amirulcyber.carrd.co)
-- 💻 [GitHub](https://github.com/amirulcyber)
-- 𝕏 [Twitter](https://twitter.com/amirulcyber)
-
----
-
-Stay secure! 🔒
+Use this section for source notes, update dates, definitions and caveats. Jekyll will render normal Markdown, footnotes and tables without additional JavaScript.
