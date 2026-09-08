@@ -1,18 +1,31 @@
-theme: jekyll-theme-merlot
 title: Amirul Cyber
 author: Amirul Cyber
 description: CyberSec | Research | South East Asia
 url: https://amirulcyber.com
 timezone: Asia/Kuala_Lumpur
+lang: en
+
+plugins:
+  - jekyll-seo-tag
 
 # Link-preview cards. WhatsApp/Telegram need og:image; Twitter uses a large
 # card when an image is present. The site-wide image below is the fallback;
-# posts override it with their first <img> in _layouts/default.html.
+# posts override it with their own `image:` front matter.
 defaults:
   - scope:
       path: ""
     values:
       image: /assets/img/og-card.jpg
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: article
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: page
 
 # Clean, predictable post URLs: /YYYY/MM/DD/slug/
 # Jekyll's default permalink expands `categories` into the URL

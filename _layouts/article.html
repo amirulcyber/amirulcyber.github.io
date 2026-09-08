@@ -1,0 +1,29 @@
+---
+layout: default
+---
+<main class="container container--wide">
+  <article>
+    <header class="page-header">
+      {%- assign label = page.label | default: page.categories.first -%}
+      {%- if label -%}
+      <p class="page-header__label">{{ label }}</p>
+      {%- endif -%}
+      <h1 class="page-header__title">{{ page.title | smartify }}</h1>
+      {%- if page.date -%}
+      <div class="page-header__dates">
+        <time class="page-header__date" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%-d %B %Y' }}</time>
+        {%- if page.updated -%}
+        <time class="page-header__date page-header__updated" datetime="{{ page.updated | date_to_xmlschema }}">Updated {{ page.updated | date: '%-d %B %Y' }}</time>
+        {%- endif -%}
+      </div>
+      {%- endif -%}
+      {%- if page.description and page.description != '' -%}
+      <p class="page-header__description">{{ page.description | smartify }}</p>
+      {%- endif -%}
+    </header>
+
+    <div class="prose">
+      {{ content }}
+    </div>
+  </article>
+</main>

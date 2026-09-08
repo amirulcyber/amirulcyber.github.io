@@ -1,56 +1,8 @@
 ---
-layout: default
+layout: home
 title: Amirul Cyber
 ---
 
-# Welcome
+Hello — I'm **Amirul Iman**, a cybersecurity researcher based in South East Asia. I dig into real-world attacks: vulnerability research on financial and government targets, ransomware claims and data leaks, and the threat actors behind them.
 
-Hello! I'm **Amirul Iman**, a cybersecurity researcher passionate about security research and technology in South East Asia.
-
-## What This Blog Is About
-
-- **Cybersecurity**: Security research, threat analysis, and defensive strategies
-- **Research**: Technical deep dives and case studies
-- **Regional Focus**: Technology trends and security insights from South East Asia
-
-## Recent Posts
-
-### 🔓 Two Critical Access-Control Flaws in a Financial Institution's Mortgage Portal
-
-**Date**: 8 September 2026 | **Categories**: Cybersecurity, Vulnerability Research
-
-Amirul Cyber's vulnerability research on a Malaysian financial institution's mortgage portal surfaced two Critical access-control flaws exposing full identity, bank, and property data.
-
-[Read full post →](/2026/09/08/two-critical-access-control-flaws-financial-mortgage-portal/)
-
-**Tags**: #BrokenAccessControl #IDOR #SpringSecurity #FinancialServices #Malaysia #PDPA #ResponsibleDisclosure
-
----
-
-### 🚨 CIMB Securities Reportedly Claimed by INC Ransom 🇲🇾
-
-**Date**: 31 August 2026 | **Categories**: Cybersecurity, Threat Intelligence
-
-The ransomware group INC Ransom has reportedly listed CIMB Securities on its data-leak site, claiming to have compromised the Malaysian stockbroking firm.
-
-**Victim**: cimbsecurities[.]com | **Sector**: Financial Services | **Country**: Malaysia
-
-⚠️ **Caveat**: This is currently an unverified threat-actor claim and has not been independently confirmed.
-
-[Read full post →](/2026/08/31/cimb-securities-inc-ransom/)
-
-**Tags**: #CyberSecurity #Ransomware #CIMB #Malaysia #ThreatIntelligence #INCRansom #DataBreach #FinancialServices
-
----
-
-[View all posts →](/blog/)
-
-## Let's Connect
-
-- 🌐 [Website](https://amirulcyber.carrd.co)
-- 💻 [GitHub](https://github.com/amirulcyber)
-- 𝕏 [Twitter](https://twitter.com/amirulcyber)
-
----
-
-Stay secure! 🔒
+This site is where the write-ups land — technical deep dives with code, timelines of incidents as they unfold, and regional context you won't get from a generic CVE feed.

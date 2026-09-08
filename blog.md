@@ -1,44 +1,17 @@
 ---
+layout: page
 title: Blog
 permalink: /blog/
+description: All writing — vulnerability research, threat intelligence, and incident deep dives.
 ---
 
-# Blog Posts
-
-All my latest cybersecurity research, threat intelligence, and technology insights.
-
----
-
-## Recent Posts
-
-### 🔓 Two Critical Access-Control Flaws in a Financial Institution's Mortgage Portal
-
-**Date**: 8 September 2026 | **Categories**: Cybersecurity, Vulnerability Research
-
-Amirul Cyber's vulnerability research on a Malaysian financial institution's mortgage portal surfaced two Critical access-control flaws exposing full identity, bank, and property data.
-
-[Read full post →](/2026/09/08/two-critical-access-control-flaws-financial-mortgage-portal/)
-
-**Tags**: #BrokenAccessControl #IDOR #SpringSecurity #FinancialServices #Malaysia #PDPA #ResponsibleDisclosure
-
----
-
-### 🚨 CIMB Securities Reportedly Claimed by INC Ransom 🇲🇾
-
-**Date**: 31 August 2026 | **Categories**: Cybersecurity, Threat Intelligence
-
-The ransomware group INC Ransom has reportedly listed CIMB Securities on its data-leak site, claiming to have compromised the Malaysian stockbroking firm.
-
-**Victim**: cimbsecurities[.]com | **Sector**: Financial Services | **Country**: Malaysia
-
-The threat actor has also published a screenshot that appears to contain Malaysian MyKad-related material.
-
-⚠️ **Caveat**: This is currently an unverified threat-actor claim and has not been independently confirmed.
-
-[Read full post →](/2026/08/31/cimb-securities-inc-ransom/)
-
-**Tags**: #CyberSecurity #Ransomware #CIMB #Malaysia #ThreatIntelligence #INCRansom #DataBreach #FinancialServices
-
----
-
-_More posts coming soon..._
+<div class="essay-list">
+  {%- for post in site.posts -%}
+  <a class="essay-card" href="{{ post.url | relative_url }}">
+    <span class="essay-card__inner">
+      <span class="essay-card__title">{{ post.title | smartify }}</span>
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%d %B %Y' }}</time>
+    </span>
+  </a>
+  {%- endfor -%}
+</div>

@@ -6,7 +6,6 @@ categories: [Personal, Welcome]
 tags: [blog, cybersecurity, research]
 ---
 
-# Welcome to My Blog!
 
 Hello! I'm **Amirul Cyber**, a cybersecurity researcher passionate about security research and technology in South East Asia.
 

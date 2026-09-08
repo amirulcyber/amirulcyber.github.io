@@ -8,7 +8,6 @@ categories: [Cybersecurity, Vulnerability Research]
 tags: [broken-access-control, idor, spring-security, financial-services, malaysia, pdpa, responsible-disclosure]
 ---
 
-# Two Critical Access-Control Flaws in a Financial Institution's Mortgage Portal
 
 At Amirul Cyber, we conduct hands-on vulnerability research across the applications that handle
 our region's most sensitive data. We recently engaged in vulnerability research on a Malaysian

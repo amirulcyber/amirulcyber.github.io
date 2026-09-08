@@ -7,7 +7,6 @@ categories: [Cybersecurity, Threat Intelligence]
 tags: [ransomware, cimb, malaysia, inc-ransom, data-breach, financial-services]
 ---
 
-# 🚨 CIMB Securities Reportedly Claimed by INC Ransom 🇲🇾
 
 The ransomware group INC Ransom has reportedly listed CIMB Securities on its data-leak site, claiming to have compromised the Malaysian stockbroking firm.
 
