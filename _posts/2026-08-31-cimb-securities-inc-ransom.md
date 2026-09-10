@@ -5,6 +5,7 @@ date: 2026-08-31 00:00:00 +0800
 permalink: /2026/08/31/cimb-securities-inc-ransom/
 categories: [Cybersecurity, Threat Intelligence]
 tags: [ransomware, cimb, malaysia, inc-ransom, data-breach, financial-services]
+thumbnail: /assets/img/figure1-data-leak-site-v6.jpg
 ---
 
 
