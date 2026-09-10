@@ -13,6 +13,14 @@
       })();
     </script>
 
+{%- comment -%}
+  Fonts are self-hosted (assets/fonts, built by tools/mk_webfonts.py) — no
+  third-party font CDN. Preload the two faces every page uses: Inter (UI + the home intro) and
+  Lora (post body copy). Each file carries the full 400-600 weight range. The rest are discovered as soon
+  as the stylesheet parses.
+{%- endcomment -%}
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="{{ '/assets/fonts/inter-400-600.woff2' | relative_url }}">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="{{ '/assets/fonts/lora-400-600.woff2' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 
 {%- comment -%}
