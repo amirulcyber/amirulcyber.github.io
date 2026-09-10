@@ -199,7 +199,9 @@ that decides whether it comes back next month.
 Take it seriously, and do not try to tidy it away. These attacks are built to survive a
 superficial clean-up: remove the offending page and the casino tends to come back, because the
 code serving it sits somewhere else entirely. Proper containment means finding what was changed,
-proving what the site is serving now, and closing the way back in — in that order.
+proving what the site is serving now, and closing the way back in — in that order. Reporting
+matters as well: we have notified MyCERT at CyberSecurity Malaysia of this campaign, and it is the
+national point of contact for incidents like these.
 
 Most importantly: **do not assume your site is fine just because it loads fine.**
 
@@ -214,10 +216,3 @@ and your Google presence — that is exactly the kind of work we do.
 
 Interested in validating your security posture? **[Contact us](https://amirulcyber.com)** — or
 reach us via [amirulcyber.carrd.co](https://amirulcyber.carrd.co).
-
----
-
-**Update — 10 September 2026.** We have reported this campaign to **MyCERT (Cyber999) at
-CyberSecurity Malaysia**, the national point of contact for the Malaysian sites above. The
-organisations named in this write-up, and the agencies responsible for them, are welcome to the
-underlying evidence — capture timestamps, content hashes and the raw responses — on request.
