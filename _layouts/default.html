@@ -24,9 +24,12 @@
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 
 {%- comment -%}
-  Icons. The mark is the filled variant of the OG-card shield: an outline stroke
-  disappears at 16px. Per-size PNGs are listed alongside the .ico so browsers
-  pick the crisper render rather than rescaling a single frame.
+  Icons. The mark is the brand emblem from the delivered artwork
+  (tools/brand/mark-square.png, keyed by tools/key_logo_photo.py). Its strokes
+  land at ~0.7px at 16px, so the small sizes render from a thickened alpha
+  (mk_favicon.py --gamma 0.65) — a straight downscale reads as a pale smudge.
+  Per-size PNGs are listed alongside the .ico so browsers pick the crisper render
+  rather than rescaling a single frame.
 {%- endcomment -%}
     <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/img/icon-32.png' | relative_url }}">
@@ -52,7 +55,7 @@
   otherwise the first <img> in the body. Emitted BEFORE {% seo %} so it wins
   over jekyll-seo-tag's site-wide default (og-card).
 {%- endcomment -%}
-{%- assign og_default = '/assets/img/og-card-2026.jpg' -%}
+{%- assign og_default = '/assets/img/og-card-2026-logo.jpg' -%}
 {%- if page.collection == 'posts' -%}
   {%- assign og_image = page.image -%}
   {%- unless og_image -%}

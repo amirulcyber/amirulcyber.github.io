@@ -15,7 +15,7 @@ defaults:
   - scope:
       path: ""
     values:
-      image: /assets/img/og-card-2026.jpg
+      image: /assets/img/og-card-2026-logo.jpg
   - scope:
       path: ""
       type: "posts"
