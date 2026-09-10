@@ -1,9 +1,11 @@
 {%- comment -%}
-  One row of the writing list: title and date, then the post's own lede.
+  One row of the writing list: thumbnail, title and date, then the post's lede.
 
-  The `description` front matter is used rather than Jekyll's generated excerpt,
-  because every post here already carries one written to stand alone — the
-  generated excerpt can otherwise open on a heading, an image or a table.
+  The thumbnail is the post's `thumbnail:` if it sets one, otherwise its `image:`
+  — which is normally the link-preview card. That card is 1200x630 and has the
+  site name on it, so at 160px wide it reads as colour rather than detail. A post
+  that wants a legible thumbnail should set `thumbnail:` to a purpose-made crop;
+  posts with neither simply render without one.
 
   The lede is truncated in Liquid *and* line-clamped in CSS: the markup stays
   small, and a browser without -webkit-line-clamp still shows a sane amount
@@ -11,13 +13,21 @@
 
   Usage: {% include essay-card.html post=post %}
 {%- endcomment -%}
-<a class="essay-card" href="{{ include.post.url | relative_url }}">
-  <span class="essay-card__inner">
-    <span class="essay-card__title">{{ include.post.title | smartify }}</span>
-    <time datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: '%d %B %Y' }}</time>
+{%- assign lede = include.post.description | default: include.post.excerpt -%}
+{%- assign thumb = include.post.thumbnail | default: include.post.image -%}
+<a class="essay-card{% if thumb %} essay-card--thumb{% endif %}" href="{{ include.post.url | relative_url }}">
+  {%- if thumb %}
+  <span class="essay-card__thumb">
+    <img src="{{ thumb | relative_url }}" alt="" loading="lazy" decoding="async" width="160" height="90">
   </span>
-  {%- assign lede = include.post.description | default: include.post.excerpt -%}
-  {%- if lede -%}
-  <span class="essay-card__excerpt">{{ lede | strip_html | normalize_whitespace | truncatewords: 30 }}</span>
-  {%- endif -%}
+  {%- endif %}
+  <span class="essay-card__body">
+    <span class="essay-card__inner">
+      <span class="essay-card__title">{{ include.post.title | smartify }}</span>
+      <time datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: '%d %B %Y' }}</time>
+    </span>
+    {%- if lede %}
+    <span class="essay-card__excerpt">{{ lede | strip_html | normalize_whitespace | truncatewords: 30 }}</span>
+    {%- endif %}
+  </span>
 </a>
