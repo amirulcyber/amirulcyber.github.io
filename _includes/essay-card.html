@@ -1,0 +1,23 @@
+{%- comment -%}
+  One row of the writing list: title and date, then the post's own lede.
+
+  The `description` front matter is used rather than Jekyll's generated excerpt,
+  because every post here already carries one written to stand alone — the
+  generated excerpt can otherwise open on a heading, an image or a table.
+
+  The lede is truncated in Liquid *and* line-clamped in CSS: the markup stays
+  small, and a browser without -webkit-line-clamp still shows a sane amount
+  instead of the whole paragraph.
+
+  Usage: {% include essay-card.html post=post %}
+{%- endcomment -%}
+<a class="essay-card" href="{{ include.post.url | relative_url }}">
+  <span class="essay-card__inner">
+    <span class="essay-card__title">{{ include.post.title | smartify }}</span>
+    <time datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: '%d %B %Y' }}</time>
+  </span>
+  {%- assign lede = include.post.description | default: include.post.excerpt -%}
+  {%- if lede -%}
+  <span class="essay-card__excerpt">{{ lede | strip_html | normalize_whitespace | truncatewords: 30 }}</span>
+  {%- endif -%}
+</a>
