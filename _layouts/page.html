@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<main class="container container--wide">
+  <header class="page-header">
+    <h1 class="page-header__title">{{ page.title | smartify }}</h1>
+    {%- if page.description and page.description != '' -%}
+    <p class="page-header__description">{{ page.description | smartify }}</p>
+    {%- endif -%}
+  </header>
+
+  <div class="prose">
+    {{ content }}
+  </div>
+</main>

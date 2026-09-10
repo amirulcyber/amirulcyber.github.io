@@ -1,0 +1,34 @@
+title: Amirul Cyber
+author: Amirul Cyber
+description: CyberSec | Research | South East Asia
+url: https://amirulcyber.com
+timezone: Asia/Kuala_Lumpur
+lang: en
+
+plugins:
+  - jekyll-seo-tag
+
+# Link-preview cards. WhatsApp/Telegram need og:image; Twitter uses a large
+# card when an image is present. The site-wide image below is the fallback;
+# posts override it with their own `image:` front matter.
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/img/og-card-2026.jpg
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: article
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: page
+
+# Clean, predictable post URLs: /YYYY/MM/DD/slug/
+# Jekyll's default permalink expands `categories` into the URL
+# (e.g. /cybersecurity/threat-intelligence/2026/08/31/slug.html),
+# which broke the "Read full post" links -> 404.
+permalink: /:year/:month/:day/:title/
