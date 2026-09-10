@@ -2,6 +2,7 @@
 title: "Your Website Is a Casino on Google — and You Can't See It"
 description: "Gambling pages are being served from the websites of a Malaysian political party, government agencies and a Singapore government sandbox — while the owners see nothing."
 image: /assets/img/figure1-umno-cloak-vs-decloak.jpg?v=20260910
+thumbnail: /assets/img/figure1-umno-cloak-vs-decloak.jpg?v=20260910
 date: 2026-09-09 00:00:00 +0800
 permalink: /2026/09/09/your-website-is-a-casino-on-google/
 categories: [Cybersecurity, Threat Intelligence]

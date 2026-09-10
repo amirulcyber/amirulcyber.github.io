@@ -1,11 +1,14 @@
 {%- comment -%}
   One row of the writing list: thumbnail, title and date, then the post's lede.
 
-  The thumbnail is the post's `thumbnail:` if it sets one, otherwise its `image:`
-  — which is normally the link-preview card. That card is 1200x630 and has the
-  site name on it, so at 160px wide it reads as colour rather than detail. A post
-  that wants a legible thumbnail should set `thumbnail:` to a purpose-made crop;
-  posts with neither simply render without one.
+  The thumbnail is the post's own `thumbnail:` front matter. It is deliberately
+  not inferred from `image:` — _config.yml sets a site-wide default `image` (the
+  link-preview card) on every post, so `image` is always present and inferring
+  from it would put the brand card on posts that have no artwork of their own.
+
+  A preview card is 1200x630 with the site name on it, so cropped into a 160x90
+  box it reads as colour rather than detail; a post that wants a legible
+  thumbnail should point `thumbnail:` at a purpose-made crop.
 
   The lede is truncated in Liquid *and* line-clamped in CSS: the markup stays
   small, and a browser without -webkit-line-clamp still shows a sane amount
@@ -14,7 +17,7 @@
   Usage: {% include essay-card.html post=post %}
 {%- endcomment -%}
 {%- assign lede = include.post.description | default: include.post.excerpt -%}
-{%- assign thumb = include.post.thumbnail | default: include.post.image -%}
+{%- assign thumb = include.post.thumbnail -%}
 <a class="essay-card{% if thumb %} essay-card--thumb{% endif %}" href="{{ include.post.url | relative_url }}">
   {%- if thumb %}
   <span class="essay-card__thumb">
