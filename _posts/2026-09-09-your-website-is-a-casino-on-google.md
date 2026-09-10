@@ -214,3 +214,10 @@ and your Google presence — that is exactly the kind of work we do.
 
 Interested in validating your security posture? **[Contact us](https://amirulcyber.com)** — or
 reach us via [amirulcyber.carrd.co](https://amirulcyber.carrd.co).
+
+---
+
+**Update — 10 September 2026.** We have reported this campaign to **MyCERT (Cyber999) at
+CyberSecurity Malaysia**, the national point of contact for the Malaysian sites above. The
+organisations named in this write-up, and the agencies responsible for them, are welcome to the
+underlying evidence — capture timestamps, content hashes and the raw responses — on request.
