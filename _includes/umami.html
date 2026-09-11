@@ -1,0 +1,14 @@
+{%- comment -%}
+  Umami Cloud — the second, independent analytics source. Site ID:
+  67cf44a7-60e5-4ec8-b294-38bba3b86253.
+
+  Kept separate from Google Tag Manager on purpose: GTM is the Google tag
+  (GA4), this is a standalone script. Two separate dashboards, so a problem
+  with either one still leaves the other reporting.
+
+  `defer` means this never blocks parsing — the browser downloads it in
+  parallel and runs it after the document is parsed, so its position in
+  <head> costs nothing. Umami is cookieless, which is why it is a useful
+  second opinion against the cookie-based GA4 numbers.
+{%- endcomment -%}
+<script defer src="https://cloud.umami.is/script.js" data-website-id="67cf44a7-60e5-4ec8-b294-38bba3b86253"></script>
