@@ -13,6 +13,8 @@
       })();
     </script>
 
+{% include gtm-head.html %}
+
 {%- comment -%}
   Fonts are self-hosted (assets/fonts, built by tools/mk_webfonts.py) — no
   third-party font CDN. Preload the two faces every page uses: Inter (UI + the home intro) and
@@ -77,6 +79,7 @@
   </head>
 
   <body>
+{% include gtm-body.html %}
     <nav class="site-nav">
       <a class="site-nav__name" href="{{ '/' | relative_url }}">{{ site.title }}</a>
       <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav-links" aria-label="Toggle navigation menu">
