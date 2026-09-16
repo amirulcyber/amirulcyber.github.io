@@ -6,9 +6,9 @@
   link-preview card) on every post, so `image` is always present and inferring
   from it would put the brand card on posts that have no artwork of their own.
 
-  A preview card is 1200x630 with the site name on it, so cropped into a 160x90
-  box it reads as colour rather than detail; a post that wants a legible
-  thumbnail should point `thumbnail:` at a purpose-made crop.
+  Thumbnails are pre-generated 320x180 cover-crops (`<stem>-320.webp` +
+  `<stem>-320.jpg`, q70) — the rendered box is 160x90 (112x63 on mobile),
+  so 320w covers 2x DPR while staying ~7KB instead of ~190KB.
 
   The lede is truncated in Liquid *and* line-clamped in CSS: the markup stays
   small, and a browser without -webkit-line-clamp still shows a sane amount
@@ -20,8 +20,13 @@
 {%- assign thumb = include.post.thumbnail -%}
 <a class="essay-card{% if thumb %} essay-card--thumb{% endif %}" href="{{ include.post.url | relative_url }}">
   {%- if thumb %}
+  {%- assign thumb_base = thumb | split: '?' | first -%}
+  {%- assign thumb_stem = thumb_base | replace: '.jpeg', '' | replace: '.jpg', '' | replace: '.png', '' -%}
   <span class="essay-card__thumb">
-    <img src="{{ thumb | relative_url }}" alt="" loading="lazy" decoding="async" width="160" height="90">
+    <picture>
+      <source type="image/webp" srcset="{{ thumb_stem | append: '-320.webp' | relative_url }} 320w" sizes="(max-width: 44rem) 112px, 160px">
+      <img src="{{ thumb_stem | append: '-320.jpg' | relative_url }}" alt="" loading="lazy" decoding="async" width="160" height="90">
+    </picture>
   </span>
   {%- endif %}
   <span class="essay-card__body">

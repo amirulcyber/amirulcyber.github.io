@@ -29,7 +29,12 @@
 {%- endcomment -%}
     <link rel="preload" as="font" type="font/woff2" crossorigin href="{{ '/assets/fonts/inter-400-600.woff2' | relative_url }}">
     <link rel="preload" as="font" type="font/woff2" crossorigin href="{{ '/assets/fonts/lora-400-600.woff2' | relative_url }}">
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.github.build_revision | default: site.time | date: '%Y%m%d' }}">
+    {%- if site.github.build_revision -%}
+      {%- assign css_v = site.github.build_revision | slice: 0, 7 -%}
+    {%- else -%}
+      {%- assign css_v = site.time | date: '%Y%m%d' -%}
+    {%- endif -%}
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ css_v }}">
 
 {%- comment -%}
   Icons. The mark is the brand emblem from the delivered artwork

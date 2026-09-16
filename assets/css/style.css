@@ -8,7 +8,7 @@
    Amirul Cyber — editorial light/day theme
    Faithful Jekyll re-implementation of the awkaishin.com design
    system (Astro): paper bg #f8f7f4, Lora serif reading,
-   Inter UI, amber #a3661f accent. Tuned for a code-first
+   Inter UI, amber #8a5a1a accent. Tuned for a code-first
    research blog: dark ink code blocks + framed figures.
    ============================================================ */
 
@@ -17,7 +17,7 @@
   --bg-secondary: #eeede9;
   --text: #1a1a1a;
   --text-muted: #6a6a6a;
-  --accent: #a3661f;
+  --accent: #8a5a1a; /* 5.5:1 on paper — passes WCAG AA for text (#a3661f was 4.38) */
   --accent-hover: #7c4d17;
   --border: #d8d6d0;
 
