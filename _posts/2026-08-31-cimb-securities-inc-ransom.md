@@ -35,6 +35,16 @@ The threat actor has also published a screenshot that appears to contain Malaysi
 
 The development is notable given CIMB Securities' role in Malaysia's capital-markets ecosystem.
 
+## Update — 15 September 2026: listing removed
+
+The INC Ransom entry for **cimbsecurities[.]com** has been removed from the group's data-leak site — deleted, not hidden.
+
+Last seen present 6 September, first seen absent 15 September (visible ~6 days).
+
+No statement from INC Ransom on the justification of the removal.
+
+**Unchanged:** the claim was never independently verified.
+
 ---
 
 #CyberSecurity #Ransomware #CIMB #Malaysia #ThreatIntelligence #INCRansom #DataBreach #FinancialServices #CyberThreats #JPDP #BursaSecurities #SecuritiesCommission #Malaysia #Pesuruhjaya #Perlindungan #Data #Peribadi #Malaysia #PPDP
