@@ -13,6 +13,10 @@
       })();
     </script>
 
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="preconnect" href="https://cloud.umami.is" crossorigin>
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+
 {% include gtm-head.html %}
 
 {% include umami.html %}
@@ -25,7 +29,7 @@
 {%- endcomment -%}
     <link rel="preload" as="font" type="font/woff2" crossorigin href="{{ '/assets/fonts/inter-400-600.woff2' | relative_url }}">
     <link rel="preload" as="font" type="font/woff2" crossorigin href="{{ '/assets/fonts/lora-400-600.woff2' | relative_url }}">
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.github.build_revision | default: site.time | date: '%Y%m%d' }}">
 
 {%- comment -%}
   Icons. The mark is the brand emblem from the delivered artwork
@@ -122,6 +126,6 @@
       </div>
     </footer>
 
-    <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
+    <script defer src="{{ '/assets/js/site.js' | relative_url }}"></script>
   </body>
 </html>

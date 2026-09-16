@@ -1,8 +1,8 @@
 ---
 title: "Your Website Is a Casino on Google — and You Can't See It"
 description: "Gambling pages are being served from the websites of a Malaysian political party, government agencies and a Singapore government sandbox — while the owners see nothing."
-image: /assets/img/figure1-umno-cloak-vs-decloak.jpg?v=20260910
-thumbnail: /assets/img/figure1-umno-cloak-vs-decloak.jpg?v=20260910
+image: /assets/img/figure1-umno-cloak-vs-decloak.jpg
+thumbnail: /assets/img/figure1-umno-cloak-vs-decloak.jpg
 date: 2026-09-09 00:00:00 +0800
 permalink: /2026/09/09/your-website-is-a-casino-on-google/
 categories: [Cybersecurity, Threat Intelligence]
@@ -12,10 +12,7 @@ tags: [seo-cloaking, gambling, malaysia, singapore, website-hijack, brand-protec
 
 Imagine Googling your own company — and finding a casino.
 
-<figure>
-  <img src="/assets/img/figure1-umno-cloak-vs-decloak.jpg?v=20260910" alt="Figure 1. Same address, two websites" style="max-width:100%; height:auto;" />
-  <figcaption>Figure 1. Same address, two websites. Left: what the owner sees when they visit umno.org.my. Right: what Google sees — a KEMBANGTOTO gambling storefront. Note the identical address bar. Both captured live on 10 September 2026.</figcaption>
-</figure>
+{% include figure.html src="/assets/img/figure1-umno-cloak-vs-decloak.jpg" alt="Figure 1. Same address, two websites" caption="Figure 1. Same address, two websites. Left: what the owner sees when they visit umno.org.my. Right: what Google sees — a KEMBANGTOTO gambling storefront. Note the identical address bar. Both captured live on 10 September 2026." eager=true width="1200" height="509" %}
 
 That is not hypothetical. In early September 2026, a sweep of search results showed Google
 being served a full-blown gambling storefront called **KEMBANGTOTO** from `umno.org.my` — the
@@ -54,10 +51,7 @@ Finance's** budget portal today and you get the ordinary budget page, with no ga
 at all. Google's index, however, still returns an **INATOGEL** casino page
 under that domain. The injection has been cleaned up. Google's copy of it has not.
 
-<figure>
-  <img src="/assets/img/figure2-mof-clean-site-vs-google-index.jpg?v=20260910" alt="Figure 2. Google's index still lists a casino page under the Ministry of Finance budget portal, which is itself clean" style="max-width:100%; height:auto;" />
-  <figcaption>Figure 2. Left: Google's index still returning an INATOGEL casino page under belanjawan.mof.gov.my. Right: the same address as it loads today — the ordinary budget page, with nothing gambling-related on it (captured 10 September 2026).</figcaption>
-</figure>
+{% include figure.html src="/assets/img/figure2-mof-clean-site-vs-google-index.jpg" alt="Figure 2. Google's index still lists a casino page under the Ministry of Finance budget portal, which is itself clean" caption="Figure 2. Left: Google's index still returning an INATOGEL casino page under belanjawan.mof.gov.my. Right: the same address as it loads today — the ordinary budget page, with nothing gambling-related on it (captured 10 September 2026)." width="1200" height="509" %}
 
 ## The casino the government itself couldn't see
 
@@ -68,10 +62,7 @@ being served Vietnamese betting funnels — 79KING, V9BET, PG88, AE888 and MU88,
 streaming pages — all under a .gov.my address. The operator rotates the landing page, so the
 site shown changes from one crawl to the next.
 
-<figure>
-  <img src="/assets/img/figure3-jdn-google-index-vs-injected-page.jpg?v=20260910" alt="Figure 3. JDN SQA subdomain: Google's index vs the injected page" style="max-width:100%; height:auto;" />
-  <figcaption>Figure 3. Left: Google's index for sqa.jdn.gov.my — Vietnamese betting pages, including PG88 and 8xbet, listed under a .gov.my domain. Right: the casino page found at that same address. Visitors to the site were shown the ordinary "Portal SQA" page (captured 10 September 2026).</figcaption>
-</figure>
+{% include figure.html src="/assets/img/figure3-jdn-google-index-vs-injected-page.jpg" alt="Figure 3. JDN SQA subdomain: Google's index vs the injected page" caption="Figure 3. Left: Google's index for sqa.jdn.gov.my — Vietnamese betting pages, including PG88 and 8xbet, listed under a .gov.my domain. Right: the casino page found at that same address. Visitors to the site were shown the ordinary 'Portal SQA' page (captured 10 September 2026)." width="1200" height="509" %}
 
 That is worth pausing on: **the agency whose job is digitising the government was serving a
 casino to Google.** If their cloak goes unnoticed, what chance does the average
@@ -81,20 +72,14 @@ It does not spare state agencies either. **KEJORA** is carrying at least five of
 CEPOST4D, PROBET88, PETIR188, PASAR123 and LOYAL4D — each parked on its own path under the
 authority's `eperjawatan` subdomain.
 
-<figure>
-  <img src="/assets/img/figure4-kejora-google-index-vs-injected-page.jpg?v=20260910" alt="Figure 4. KEJORA eperjawatan subdomain: Google's index vs the injected page" style="max-width:100%; height:auto;" />
-  <figcaption>Figure 4. Left: Google's index for eperjawatan.kejora.gov.my — five separate gambling landing pages on a government development authority's subdomain. Right: the casino page found at that address (captured 10 September 2026).</figcaption>
-</figure>
+{% include figure.html src="/assets/img/figure4-kejora-google-index-vs-injected-page.jpg" alt="Figure 4. KEJORA eperjawatan subdomain: Google's index vs the injected page" caption="Figure 4. Left: Google's index for eperjawatan.kejora.gov.my — five separate gambling landing pages on a government development authority's subdomain. Right: the casino page found at that address (captured 10 September 2026)." width="1200" height="509" %}
 
 The campaign does not stop at government either. **ISIS Malaysia**, the Institute of Strategic
 and International Studies, was found serving casino tutorials from one of its own platforms —
 "How to Identify High Quality Slot Software UK" sitting right next to its policy analysis. This
 one needed no cloak at all: every visitor, human or search engine, got the casino.
 
-<figure>
-  <img src="/assets/img/figure5-isis-google-index-vs-casino-article.jpg?v=20260910" alt="Figure 5. ISIS Malaysia platform: Google's index vs the live casino article" style="max-width:100%; height:auto;" />
-  <figcaption>Figure 5. Left: casino articles indexed under a think tank's own platform. Right: the same article, live to any visitor. No cloak, no hiding (captured 10 September 2026).</figcaption>
-</figure>
+{% include figure.html src="/assets/img/figure5-isis-google-index-vs-casino-article.jpg" alt="Figure 5. ISIS Malaysia platform: Google's index vs the live casino article" caption="Figure 5. Left: casino articles indexed under a think tank's own platform. Right: the same article, live to any visitor. No cloak, no hiding (captured 10 September 2026)." width="1200" height="509" %}
 
 It reached an NGO too. The **Perdana Leadership Foundation**, which documents Malaysian
 leadership for the public, had casino pages indexed all over its site — SURGA22 on the library
@@ -102,13 +87,10 @@ page, INDOBIT88 under publications, POS4D on the hall-rental page. Today every o
 addresses serves the Foundation's own content, with nothing gambling-related left in the page.
 Google, again, has not caught up: the casino titles are still what appears in search.
 
-<figure>
-  <img src="/assets/img/figure6-perdana-google-index-vs-live-page.jpg?v=20260910" alt="Figure 6. Perdana Leadership Foundation: Google's index vs the live page" style="max-width:100%; height:auto;" />
-  <figcaption>Figure 6. Left: Google's index for perdana.org.my — gambling brands parked on the Foundation's library, publications and hall-rental pages. Right: the library page as it loads today — the Foundation's own content (captured 10 September 2026).</figcaption>
-</figure>
+{% include figure.html src="/assets/img/figure6-perdana-google-index-vs-live-page.jpg" alt="Figure 6. Perdana Leadership Foundation: Google's index vs the live page" caption="Figure 6. Left: Google's index for perdana.org.my — gambling brands parked on the Foundation's library, publications and hall-rental pages. Right: the library page as it loads today — the Foundation's own content (captured 10 September 2026)." width="1200" height="509" %}
 
 Across the Causeway, Singapore offers two very different pictures. The first is a **publicly
-reachable sandbox under the IRAS developer portal**, carrying a Malay-language "Toto Macau"
+reachable sandbox under the IRAS developer portal**, carrying a Malay-language 'Toto Macau'
 page that anyone can open. It is worth being precise about this one: the tax authority's main
 website is untouched, and what we found sits on a sandbox subdomain built for testing. On the
 evidence so far this looks less like a break-in than an open area where content can be published
@@ -116,15 +98,9 @@ without moderation — and nobody came back to clean it up. The second, the **Fi
 is a plainer case: casino posts on its course platform and its backup platform, in half a dozen
 languages, live to anyone who opens them.
 
-<figure>
-  <img src="/assets/img/figure7-iras-google-index-vs-gambling-page.jpg?v=20260910" alt="Figure 7. IRAS developer sandbox: Google's index vs the live page" style="max-width:100%; height:auto;" />
-  <figcaption>Figure 7. Left: Google's index for the IRAS developer sandbox subdomain. Right: the same address, open to any visitor — a "Toto Macau" page. A sandbox left unmoderated is still a page on your domain (captured 10 September 2026).</figcaption>
-</figure>
+{% include figure.html src="/assets/img/figure7-iras-google-index-vs-gambling-page.jpg" alt="Figure 7. IRAS developer sandbox: Google's index vs the live page" caption="Figure 7. Left: Google's index for the IRAS developer sandbox subdomain. Right: the same address, open to any visitor — a 'Toto Macau' page. A sandbox left unmoderated is still a page on your domain (captured 10 September 2026)." width="1200" height="509" %}
 
-<figure>
-  <img src="/assets/img/figure8-fintech-google-index-vs-casino-post.jpg?v=20260910" alt="Figure 8. FinTech Academy: Google's index vs the live casino post" style="max-width:100%; height:auto;" />
-  <figcaption>Figure 8. Left: the course platform's Google listing. Right: one of those posts, live — an English casino promotion published alongside the course catalogue (captured 10 September 2026).</figcaption>
-</figure>
+{% include figure.html src="/assets/img/figure8-fintech-google-index-vs-casino-post.jpg" alt="Figure 8. FinTech Academy: Google's index vs the live casino post" caption="Figure 8. Left: the course platform's Google listing. Right: one of those posts, live — an English casino promotion published alongside the course catalogue (captured 10 September 2026)." width="1200" height="509" %}
 
 The method is not exclusive to gambling either. The **Election Commission's Kedah state office**
 is cloaked in exactly the same way: visitors get the office's own election pages, while Google is
@@ -132,10 +108,7 @@ handed German-language pharmacy spam. A different spam economy, running on an id
 mechanism — which is the point. Once a site can be made to wear two faces, what gets sold behind
 the second one is just a matter of who pays.
 
-<figure>
-  <img src="/assets/img/figure9-election-commission-google-index-vs-pharma-spam.jpg?v=20260910" alt="Figure 9. Election Commission Kedah state office: Google's index vs the cloaked pharmacy spam" style="max-width:100%; height:auto;" />
-  <figcaption>Figure 9. Left: Google's index for ppn.spr.gov.my — a German-language "Kamagra Oral Jelly" page listed under a Malaysian Election Commission subdomain. Right: that same address as Google receives it. A normal visitor gets the Kedah election office's own pages (captured 10 September 2026).</figcaption>
-</figure>
+{% include figure.html src="/assets/img/figure9-election-commission-google-index-vs-pharma-spam.jpg" alt="Figure 9. Election Commission Kedah state office: Google's index vs the cloaked pharmacy spam" caption="Figure 9. Left: Google's index for ppn.spr.gov.my — a German-language 'Kamagra Oral Jelly' page listed under a Malaysian Election Commission subdomain. Right: that same address as Google receives it. A normal visitor gets the Kedah election office's own pages (captured 10 September 2026)." width="1200" height="509" %}
 
 ## The two-faced shop
 
@@ -160,10 +133,7 @@ A glossy gambling landing page sitting under your brand — slot machines, "TOTO
 counters, and the glamour imagery these operators use as bait. Your company's domain name in the
 address bar, above a page selling illegal gambling.
 
-<figure>
-  <img src="/assets/img/figure10-umno-google-serp.jpg?v=20260910b" alt="Figure 10. Live Google search showing a gambling result under umno.org.my, and the casino page served at that address" style="max-width:100%; height:auto;" />
-  <figcaption>Figure 10. Left: a live Google search for the party's own website — the top result is a casino indexed under that domain. Right: what that result actually opens into (captured 10 September 2026).</figcaption>
-</figure>
+{% include figure.html src="/assets/img/figure10-umno-google-serp.jpg" alt="Figure 10. Live Google search showing a gambling result under umno.org.my, and the casino page served at that address" caption="Figure 10. Left: a live Google search for the party's own website — the top result is a casino indexed under that domain. Right: what that result actually opens into (captured 10 September 2026)." width="1200" height="509" %}
 
 In Malaysia, where most forms of gambling are illegal, that is more than embarrassing. It is a
 reputational and legal landmine sitting on your brand.

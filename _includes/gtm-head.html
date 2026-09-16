@@ -1,18 +1,37 @@
 {%- comment -%}
-  Google Tag Manager — head snippet. Container: GTM-5P6JQDXX (GA4 is configured
-  inside the GTM container, so no separate gtag.js is loaded here).
-
-  Included as the first thing in <head> after the charset, viewport and the
-  pre-paint theme script: those three must not be delayed (the theme script
-  prevents a flash of the wrong theme), and the inline part of the snippet is
-  microseconds either way. Everything the snippet loads is async.
-
-  Google's snippet is kept verbatim — the line-wrapped statements are intentional.
+  Google Tag Manager — delayed loader (PageSpeed: cut mobile TBT).
+  dataLayer is initialised immediately (cheap, preserves event queuing);
+  the external gtm.js fetch is deferred until idle / first interaction /
+  3s timeout, so it never competes with LCP on mobile.
+  Container: GTM-5P6JQDXX (GA4 lives inside the container).
 {%- endcomment -%}
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5P6JQDXX');</script>
+<!-- Google Tag Manager (delayed) -->
+<script>
+window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+(function () {
+  var loaded = false;
+  function loadGTM() {
+    if (loaded) return; loaded = true;
+    var f = document.getElementsByTagName('script')[0],
+        j = document.createElement('script');
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-5P6JQDXX';
+    f.parentNode.insertBefore(j, f);
+  }
+  function schedule() {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(function () { loadGTM(); }, { timeout: 3000 });
+    } else {
+      setTimeout(loadGTM, 2500);
+    }
+  }
+  ['scroll', 'touchstart', 'click', 'keydown'].forEach(function (ev) {
+    window.addEventListener(ev, loadGTM, { once: true, passive: true });
+  });
+  if (document.readyState === 'complete') { schedule(); }
+  else { window.addEventListener('load', schedule, { once: true }); }
+  setTimeout(loadGTM, 6000); /* safety net */
+})();
+</script>
 <!-- End Google Tag Manager -->

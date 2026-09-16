@@ -1,0 +1,23 @@
+{%- comment -%}
+  Responsive figure with WebP srcset + JPG fallback.
+  Expects pre-generated siblings: <stem>-800.webp and <stem>-1200.webp
+  (built with ImageMagick q75, see commit "pagespeed images").
+  Usage: {% include figure.html src="/assets/img/foo.jpg" alt="..." caption="..." eager=true width="1200" height="509" %}
+  - First/hero image: eager=true (fetchpriority high, no lazy)
+  - All others: lazy + async decode, explicit dimensions (no CLS)
+{%- endcomment -%}
+{%- assign _src = include.src -%}
+{%- assign _base = _src | split: '?' | first -%}
+{%- assign _stem = _base | replace: '.jpeg', '' | replace: '.jpg', '' | replace: '.png', '' -%}
+{%- assign _alt = include.alt | default: '' -%}
+{%- assign _w = include.width | default: '1200' -%}
+{%- assign _h = include.height | default: '509' -%}
+<figure>
+  <picture>
+    <source type="image/webp" srcset="{{ _stem }}-800.webp 800w, {{ _stem }}-1200.webp 1200w" sizes="(max-width: 68rem) 100vw, 68rem">
+    <img src="{{ _src }}" alt="{{ _alt | escape }}" width="{{ _w }}" height="{{ _h }}" style="max-width:100%; height:auto;"{% if include.eager %} fetchpriority="high" decoding="async"{% else %} loading="lazy" decoding="async"{% endif %}>
+  </picture>
+{%- if include.caption -%}
+  <figcaption>{{ include.caption }}</figcaption>
+{%- endif -%}
+</figure>

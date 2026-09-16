@@ -15,7 +15,7 @@ Hello — I'm **Amirul Iman**, a cybersecurity researcher and technologist based
 
 ## How to reach me
 
-- **Email**: <img class="email-img email-img--light" src="/assets/img/email-hello.png" alt="" width="400" height="77" /> <img class="email-img email-img--dark" src="/assets/img/email-hello-dark.png" alt="" style="display:none" width="400" height="77" />
+- **Email**: <img class="email-img email-img--light" src="/assets/img/email-hello.png" alt="" width="400" height="77" loading="lazy" decoding="async" /> <img class="email-img email-img--dark" src="/assets/img/email-hello-dark.png" alt="" style="display:none" width="400" height="77" loading="lazy" decoding="async" />
 - **Website**: [amirulcyber.carrd.co](https://amirulcyber.carrd.co)
 - **GitHub**: [github.com/amirulcyber](https://github.com/amirulcyber)
 - **Twitter/X**: [@amirulcyber](https://twitter.com/amirulcyber)

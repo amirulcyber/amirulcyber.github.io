@@ -17,9 +17,7 @@ access-control flaws** that, together, exposed **more than 100 account records**
 complete mortgage applications** to unauthenticated or low-privilege callers. The data at risk
 included full identity, bank account, and property details.
 
-![Redacted excerpt of the customer data exposed through the broken access control](/assets/img/figure1-redacted-customer-data.jpg)
-
-*Figure 1 — Redacted sample of the customer data exposed by the broken access control.*
+{% include figure.html src="/assets/img/figure1-redacted-customer-data.jpg" alt="Redacted excerpt of the customer data exposed through the broken access control" caption="Figure 1 — Redacted sample of the customer data exposed by the broken access control." eager=true width="515" height="800" %}
 
 ## Finding 1 — Unauthenticated read of the account-management API (Critical)
 
