@@ -66,6 +66,8 @@ If either comes back as a violent-crime hit, the classifier isn't reading. It's 
 
 If you run a compute fund or credit program for independent security researchers, I'd like to hear about it. Asking for a 7B model doing two tokens per second.
 
+Hit me up [@Amirul_Cyber](https://x.com/amirul_cyber/).
+
 ---
 
 *Method notes: local model Qwen 2.5 Coder 7B (Q3_K_M) via llama.cpp server, temperature 0, outputs capped at 80 tokens. Scorer is regex-based with homonym exceptions evaluated before full/partial patterns; benign validation texts score 0.0% with a 0% false-positive rate. Malicious controls (12 texts) score ≥80% and are flagged.*
