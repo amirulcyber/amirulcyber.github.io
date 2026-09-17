@@ -9,4 +9,4 @@ Primary-source artifacts behind the research, published verbatim with provenance
 
 ## AI Security · System Prompts
 
-1. [xAI-grok-4.5-mobile-system-prompt-20260917.md](/security/ref/xAI-grok-4.5-mobile-system-prompt-20260917.md) — Grok 4.5 system prompt, captured via direct-verbatim prompt on the mobile app, 2026-09-17. Corroborated 7/8 against the independent public leak (see file header).
+1. [xAI-grok-4.5-mobile-system-prompt-20260917.md](/security/ref/xAI-grok-4.5-mobile-system-prompt-20260917.html) — Grok 4.5 system prompt, captured via direct-verbatim prompt on the mobile app, 2026-09-17. Corroborated 7/8 against the independent public leak.
