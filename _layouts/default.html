@@ -105,7 +105,7 @@
         <span class="nav-toggle__bar"></span>
       </button>
       <ul class="site-nav__links" id="site-nav-links">
-        {%- assign nav_items = '/blog/|Blog,/about/|About,/tags/|Tags' | split: ',' -%}
+        {%- assign nav_items = '/blog/|Blog,/security/|Security,/about/|About,/tags/|Tags' | split: ',' -%}
         {%- for item in nav_items -%}
           {%- assign parts = item | split: '|' -%}
           {%- assign target = parts[0] | prepend: site.baseurl -%}
