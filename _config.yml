@@ -7,6 +7,7 @@ lang: en
 
 plugins:
   - jekyll-seo-tag
+  - jekyll-sitemap
 
 # Link-preview cards. WhatsApp/Telegram need og:image; Twitter uses a large
 # card when an image is present. The site-wide image below is the fallback;
