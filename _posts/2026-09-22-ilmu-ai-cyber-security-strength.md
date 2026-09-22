@@ -74,3 +74,5 @@ Gambling is the shared exception. Mini guides the user through casino evaluation
 The strongest control I found is not in any model. It is the ILMU Chat layer itself: numbered-rule asks die, a streaming monitor visibly rewrites policy violations mid-response. Kudos to the team for shipping the wrapper, with one honest recommendation attached: front the API with the same protections, because everything the wrapper blocks is available unwrapped one endpoint away.
 
 Ilmu padi, makin berisi makin menunduk. The fuller the rice, the lower it bows. These models are at their best when they bow: refuse, redirect, correct. The work ahead is making the bow the default on every channel, not just the chat window.
+
+ILMU's security team have been notified.
