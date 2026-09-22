@@ -1,6 +1,6 @@
 ---
 title: "The Screenshot Exemption: Probing Malaysia's ILMU Models"
-description: "Makin berisi, makin menunduk: except when the model is confident and wrong. 98 API probes plus a month of app-channel testing against ILMU."
+description: "Makin berisi, makin menunduk."
 date: 2026-09-22 00:00:00 +0800
 permalink: /2026/09/22/ilmu-ai-cyber-security-strength/
 categories: [AI Security, Red Teaming]
