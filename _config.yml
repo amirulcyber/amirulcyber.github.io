@@ -33,7 +33,3 @@ defaults:
 # (e.g. /cybersecurity/threat-intelligence/2026/08/31/slug.html),
 # which broke the "Read full post" links -> 404.
 permalink: /:year/:month/:day/:title/
-
-# Static pages served verbatim (no Liquid/layout processing)
-exclude:
-  - edu
