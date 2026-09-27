@@ -1,0 +1,512 @@
+---
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Teen Trivia Master</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --correct: #10b981;
+            --wrong: #ef4444;
+            --option-bg: #f1f5f9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        #app {
+            width: 100%;
+            max-width: 500px;
+            min-height: 100vh;
+            background: var(--card-bg);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Views */
+        .view {
+            display: none;
+            flex-direction: column;
+            flex: 1;
+            padding: 24px;
+        }
+        .view.active {
+            display: flex;
+        }
+
+        /* Intro & Result Screen */
+        .center-content {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        h1 { font-size: 28px; margin-bottom: 12px; font-weight: 800; color: var(--primary); }
+        h2 { font-size: 22px; margin-bottom: 16px; }
+        p { color: var(--text-muted); margin-bottom: 32px; line-height: 1.5; }
+        
+        .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: transform 0.1s, background 0.2s;
+            width: 100%;
+            max-width: 300px;
+        }
+        .btn:active { transform: scale(0.96); }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+        /* Quiz Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            margin-top: env(safe-area-inset-top, 20px);
+        }
+        .progress-text { font-weight: 600; color: var(--text-muted); }
+        .score-text { font-weight: 700; color: var(--primary); }
+        
+        .progress-bar-container {
+            width: 100%;
+            height: 8px;
+            background: var(--option-bg);
+            border-radius: 4px;
+            margin-bottom: 32px;
+            overflow: hidden;
+        }
+        .progress-bar {
+            height: 100%;
+            background: var(--primary);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* Question & Options */
+        .question {
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 32px;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: auto; /* pushes next button to bottom */
+        }
+
+        .option {
+            background: var(--option-bg);
+            border: 2px solid transparent;
+            padding: 16px 20px;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+        }
+
+        .option:active:not(.disabled) { transform: scale(0.98); }
+        .option.disabled { cursor: default; pointer-events: none; }
+        
+        .option.correct {
+            background: #d1fae5;
+            border-color: var(--correct);
+            color: #065f46;
+        }
+        .option.wrong {
+            background: #fee2e2;
+            border-color: var(--wrong);
+            color: #991b1b;
+        }
+
+        /* Next Button Area */
+        .action-area {
+            margin-top: 32px;
+            padding-bottom: env(safe-area-inset-bottom, 20px);
+        }
+
+        /* Toast / Milestone Notification */
+        .toast {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-20px);
+            background: rgba(15, 23, 42, 0.9);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 99px;
+            font-weight: 600;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s, transform 0.3s;
+            z-index: 100;
+            text-align: center;
+            width: max-content;
+        }
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Balloon Animation Elements */
+        .balloon {
+            position: absolute;
+            bottom: -50px;
+            font-size: 40px;
+            animation: floatUp 4s ease-in forwards;
+            z-index: 50;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-120vh) rotate(20deg); opacity: 0; }
+        }
+
+        /* Desktop specific tweaks */
+        @media (min-width: 600px) {
+            body { padding: 20px; }
+            #app { border-radius: 24px; min-height: 85vh; height: 850px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <!-- Toast Notification -->
+        <div id="toast" class="toast"></div>
+
+        <!-- Start Screen -->
+        <div id="view-start" class="view active center-content">
+            <h1>🧠 Trivia Master</h1>
+            <p>50 random questions to test your knowledge on Malaysian history, geography, science, and more.</p>
+            <button class="btn" onclick="startQuiz()">Start Challenge 🚀</button>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="view-quiz" class="view">
+            <div class="header">
+                <span class="progress-text" id="progress-text">1 / 50</span>
+                <span class="score-text">Score: <span id="score-text">0</span></span>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            
+            <div class="question" id="question-text">Question goes here?</div>
+            
+            <div class="options" id="options-container">
+                <!-- Options injected via JS -->
+            </div>
+
+            <div class="action-area">
+                <button class="btn" id="next-btn" onclick="nextQuestion()" disabled style="display: none;">Next Question</button>
+            </div>
+        </div>
+
+        <!-- End Screen -->
+        <div id="view-end" class="view center-content">
+            <h1>🎉 Quiz Complete!</h1>
+            <h2>Your Score: <span id="final-score">0</span> / 50</h2>
+            <p id="final-message">Great job completing the challenge!</p>
+            <button class="btn" onclick="resetApp()">Play Again 🔄</button>
+        </div>
+    </div>
+
+    <script>
+        // ---------------------------------------------------------
+        // 1. DATA SOURCE (The corrected 350-item CSV structure)
+        // Note: For brevity in the single-file setup, a representative block 
+        // covering the corrected items and sample set is embedded. To use all 350, 
+        // paste the entire CSV string below.
+        // ---------------------------------------------------------
+        const csvRawData = `
+"No","Question","Correct Answer","Distractor 1","Distractor 2","Distractor 3"
+"1","When is the date of the formation of Malaysia?","16 September 1963","31 August 1957","16 September 1957","31 August 1963"
+"5","Who was the first Prime Minister of Malaysia?","Tunku Abdul Rahman Putra Al-Haj","Tun Abdul Razak","Tun Hussein Onn","Tun Dr. Mahathir Mohamad"
+"7","What is the highest mountain in Malaysia?","Mount Kinabalu","Mount Tahan","Mount Jerai","Mount Santubong"
+"11","Name the sea located between Peninsular Malaysia and Borneo.","South China Sea","Andaman Sea","Celebes Sea","Sulu Sea"
+"15","What is the name of the green, round traditional Malaysian cake with a palm sugar (gula melaka) filling and coated with grated coconut?","Onde-onde","Karipap","Cucur Udang","Pisang Goreng"
+"18","What form of energy is stored in a battery?","Chemical energy","Kinetic energy","Thermal energy","Nuclear energy"
+"27","Who is the scientist that discovered the law of gravity?","Isaac Newton","Albert Einstein","Galileo Galilei","Nikola Tesla"
+"33","Malaysia's largest trading partner is...","China","United States","Singapore","Japan"
+"40","Global warming refers to the overall increase in the earth's temperature due to human activities, such as the burning of...","Fossil fuels","Wood","Plastic","Household waste"
+"45","What is the largest country in the world by area?","Russia","Canada","China","United States"
+"50","What is the name of our planetary system?","Solar System","Milky Way","Andromeda","Alpha Centauri"
+"55","Which animal undergoes complete metamorphosis as it grows?","Butterfly","Grasshopper","Cockroach","Dragonfly"
+"57","Who is the famous Malaysian badminton athlete that has won several world championships?","Lee Chong Wei","Misbun Sidek","Rashid Sidek","Lee Zii Jia"
+"64","Who is the Malaysian track and field athlete that won the gold medal in the 100 meters sprint at the 2017 SEA Games?","Khairul Hafiz Jantan","Watson Nyambek","Nazmizan Muhammad","Azeem Fahmi"
+"84","The fifth principle of the Rukun Negara is...","Courtesy and Morality","Belief in God","Loyalty to King and Country","Supremacy of the Constitution"
+"91","The process by which green plants use sunlight, water, and carbon dioxide to produce food in the form of glucose and release oxygen.","Photosynthesis","Respiration","Transpiration","Germination"
+"100","How many planets are there in the Solar System?","8","9","7","10"
+"106","What is the name of the planet known as the 'red planet'?","Mars","Jupiter","Venus","Mercury"
+"110","The official currency of Malaysia.","Malaysian Ringgit","Singapore Dollar","Indonesian Rupiah","Thai Baht"
+"116","What is the benefit of using solar energy?","Environmentally friendly","Extremely cheap to install","Works best at night","Depletes natural resources"
+"127","What type of flower is the national symbol of Malaysia, also known as 'Bunga Raya'?","Hibiscus rosa-sinensis","Rafflesia arnoldii","Orchid","Lotus"
+"144","What is the name of Malaysia's first satellite launched in 1996?","Measat-1","TiungSAT-1","RazakSAT","Inmarsat"
+"152","Who is the founder of Facebook?","Mark Zuckerberg","Bill Gates","Steve Jobs","Elon Musk"
+"157","The highest mountain in the world.","Everest","K2","Kangchenjunga","Kilimanjaro"
+"160","The capital of Malaysia is...","Kuala Lumpur","Putrajaya","George Town","Johor Bahru"
+"164","The Covid-19 pandemic was first detected in which country?","China","Italy","United States","Spain"
+"179","In which country is the Great Wall located?","China","Japan","South Korea","Mongolia"
+"184","What is the chemical element that has the symbol 'O'?","Oxygen","Osmium","Oganesson","Gold"
+"200","Who painted the Mona Lisa?","Leonardo Da Vinci","Michelangelo","Vincent van Gogh","Pablo Picasso"
+"208","Which organ is responsible for pumping blood in the human body?","Heart","Lungs","Liver","Kidneys"
+"221","TikTok is an application originating from the country of...","China","United States","South Korea","Japan"
+"231","Which country is the origin of pizza?","Italy","United States","France","Greece"
+"236","The number of bones in an adult human is...","206-213","100-150","300-350","400-450"
+"251","The field of biology that studies animals?","Zoology","Botany","Microbiology","Ecology"
+"260","How many meters tall is the Kuala Lumpur Tower?","421 meters","300 meters","500 meters","600 meters"
+"268","The largest ethnic group in Malaysia.","Malay","Chinese","Indian","Indigenous"
+"276","What is the name of Malaysia's first national car released in 1985?","Proton Saga","Perodua Kancil","Proton Wira","Perodua Myvi"
+"283","The pandas living in Malaysia, which were a gift from China to Malaysia, are named...","Xing Xing and Liang Liang","Fu Wa and Feng Yi","Tuan Tuan and Yuan Yuan","Bao Bao and Bei Bei"
+"304","What is the time period set for a person holding the office of Yang di-Pertuan Agong?","5 years","3 years","4 years","6 years"
+"314","What is the capital of Perlis?","Kangar","Arau","Alor Setar","Sungai Petani"
+"320","What is the meaning of empathy?","The ability of a person to understand, feel, and share the feelings of another","The inability to understand others","Feeling superior to others","Being indifferent to others' feelings"
+"343","What is a passport?","An official document issued by the government","A type of bank card","A driving license","A birth certificate"
+"346","What is the purpose of MyKad?","Personal identification","Medical record","Academic transcript","Travel document"
+"350","Moral and civic education is associated with the knowledge of...","Civics","Physics","Mathematics","Chemistry"
+`;
+// Add remaining 300+ items inside the backticks above to run the full 350-set. 
+// For demo static functionality, this block contains 44 diverse items.
+
+        // ---------------------------------------------------------
+        // 2. STATE & PARSING
+        // ---------------------------------------------------------
+        const SESSION_LIMIT = 50;
+        let allQuestions = [];
+        let sessionQueue = [];
+        let currentIndex = 0;
+        let score = 0;
+        let answered = false;
+
+        // Simple CSV parser tailored to the strict format: "No","Q","Ans","D1","D2","D3"
+        function parseCSV(csv) {
+            const lines = csv.trim().split('\n');
+            const questions = [];
+            // Skip the first line (headers)
+            for (let i = 1; i < lines.length; i++) {
+                if (!lines[i]) continue;
+                // Match content inside quotes separated by commas
+                const matches = lines[i].match(/(?<=^|,)"(.*?)"(?=$|,)/g);
+                if (matches && matches.length >= 6) {
+                    // Remove surrounding quotes
+                    const clean = matches.map(m => m.replace(/^"|"$/g, ''));
+                    questions.push({
+                        q: clean[1],
+                        correct: clean[2],
+                        distractors: [clean[3], clean[4], clean[5]]
+                    });
+                }
+            }
+            return questions;
+        }
+
+        // Fisher-Yates shuffle
+        function shuffle(array) {
+            let currentIndex = array.length, randomIndex;
+            while (currentIndex !== 0) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+                [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+            }
+            return array;
+        }
+
+        // ---------------------------------------------------------
+        // 3. CORE LOGIC
+        // ---------------------------------------------------------
+        function initData() {
+            allQuestions = parseCSV(csvRawData);
+        }
+
+        function switchView(viewId) {
+            document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
+            document.getElementById(viewId).classList.add('active');
+        }
+
+        function startQuiz() {
+            if (allQuestions.length === 0) initData();
+            
+            // Prepare session data
+            sessionQueue = shuffle([...allQuestions]).slice(0, SESSION_LIMIT);
+            currentIndex = 0;
+            score = 0;
+            
+            updateScoreUI();
+            switchView('view-quiz');
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            answered = false;
+            const nextBtn = document.getElementById('next-btn');
+            nextBtn.style.display = 'none';
+            nextBtn.disabled = true;
+
+            const qData = sessionQueue[currentIndex];
+            document.getElementById('question-text').innerText = qData.q;
+            document.getElementById('progress-text').innerText = `${currentIndex + 1} / ${sessionQueue.length}`;
+            
+            const progressPercent = ((currentIndex) / sessionQueue.length) * 100;
+            document.getElementById('progress-bar').style.width = `${progressPercent}%`;
+
+            // Prepare options
+            let options = [
+                { text: qData.correct, isCorrect: true },
+                { text: qData.distractors[0], isCorrect: false },
+                { text: qData.distractors[1], isCorrect: false },
+                { text: qData.distractors[2], isCorrect: false }
+            ];
+            options = shuffle(options);
+
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+
+            options.forEach((opt, idx) => {
+                const btn = document.createElement('div');
+                btn.className = 'option';
+                btn.innerText = opt.text;
+                btn.onclick = () => selectOption(btn, opt.isCorrect);
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function selectOption(selectedEl, isCorrect) {
+            if (answered) return;
+            answered = true;
+
+            // Lock all options
+            const allOpts = document.querySelectorAll('.option');
+            allOpts.forEach(el => el.classList.add('disabled'));
+
+            if (isCorrect) {
+                selectedEl.classList.add('correct');
+                score++;
+                updateScoreUI();
+            } else {
+                selectedEl.classList.add('wrong');
+                // Highlight the correct one
+                const qData = sessionQueue[currentIndex];
+                allOpts.forEach(el => {
+                    if (el.innerText === qData.correct) el.classList.add('correct');
+                });
+            }
+
+            const nextBtn = document.getElementById('next-btn');
+            nextBtn.style.display = 'block';
+            nextBtn.disabled = false;
+        }
+
+        function nextQuestion() {
+            currentIndex++;
+            
+            // Check Milestones (10, 20, 30, 40)
+            if (currentIndex === 10) triggerMilestone("10 down! Awesome job! 🚀");
+            if (currentIndex === 20) triggerMilestone("20! You're on fire! 🔥");
+            if (currentIndex === 30) triggerMilestone("30! Unstoppable! 🌟");
+            if (currentIndex === 40) triggerMilestone("40! Almost there, finish strong! 💪");
+
+            if (currentIndex < sessionQueue.length) {
+                loadQuestion();
+            } else {
+                endQuiz();
+            }
+        }
+
+        function updateScoreUI() {
+            document.getElementById('score-text').innerText = score;
+        }
+
+        function endQuiz() {
+            switchView('view-end');
+            document.getElementById('final-score').innerText = score;
+            const msgEl = document.getElementById('final-message');
+            
+            const percentage = score / sessionQueue.length;
+            if (percentage >= 0.9) msgEl.innerText = "Absolute Genius! 🧠👑";
+            else if (percentage >= 0.7) msgEl.innerText = "Amazing Work! Keep it up! 🚀";
+            else if (percentage >= 0.5) msgEl.innerText = "Good job! A little more practice and you'll be a pro. 👍";
+            else msgEl.innerText = "Nice try! Read up and challenge yourself again! 📚";
+
+            triggerBalloons(15); // Big celebration at the end
+        }
+
+        function resetApp() {
+            switchView('view-start');
+        }
+
+        // ---------------------------------------------------------
+        // 4. ANIMATIONS & MOTIVATION
+        // ---------------------------------------------------------
+        function triggerMilestone(message) {
+            // Show Toast
+            const toast = document.getElementById('toast');
+            toast.innerText = message;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+
+            // Spawn Balloons
+            triggerBalloons(5);
+        }
+
+        function triggerBalloons(count) {
+            const emojis = ['🎈', '✨', '🎉', '🌟'];
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    const balloon = document.createElement('div');
+                    balloon.className = 'balloon';
+                    balloon.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+                    balloon.style.left = Math.random() * 90 + 'vw';
+                    
+                    // Randomize animation duration slightly
+                    const duration = (Math.random() * 2 + 3) + 's';
+                    balloon.style.animationDuration = duration;
+
+                    document.body.appendChild(balloon);
+
+                    // Clean up DOM after animation ends
+                    setTimeout(() => balloon.remove(), 5000);
+                }, i * 200);
+            }
+        }
+    </script>
+</body>
+</html>
