@@ -367,7 +367,10 @@
             if (allQuestions.length === 0) initData();
             
             if (allQuestions.length < SESSION_LIMIT) {
-                showToast(`⚠️ Only ${allQuestions.length} questions available (need 50)`);
+                const toast = document.getElementById('toast');
+                toast.innerText = `⚠️ Only ${allQuestions.length} questions available (need 50)`;
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 3000);
             }
             
             // Fisher-Yates shuffle guarantees random selection every session
