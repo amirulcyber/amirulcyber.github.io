@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="robots" content="noindex, nofollow">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teen Trivia Master</title>
     <style>
         :root {
@@ -34,17 +34,20 @@
             align-items: center;
             min-height: 100vh;
             overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
         }
 
         #app {
             width: 100%;
             max-width: 500px;
             min-height: 100vh;
+            max-height: 100vh;
             background: var(--card-bg);
             display: flex;
             flex-direction: column;
             position: relative;
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            overflow-y: auto;
         }
 
         /* Views */
@@ -52,7 +55,7 @@
             display: none;
             flex-direction: column;
             flex: 1;
-            padding: 24px;
+            padding: 16px;
         }
         .view.active {
             display: flex;
@@ -72,14 +75,15 @@
             background: var(--primary);
             color: white;
             border: none;
-            padding: 16px 32px;
-            font-size: 18px;
+            padding: 14px 28px;
+            font-size: 16px;
             font-weight: 600;
-            border-radius: 16px;
+            border-radius: 14px;
             cursor: pointer;
             transition: transform 0.1s, background 0.2s;
             width: 100%;
             max-width: 300px;
+            min-height: 48px;
         }
         .btn:active { transform: scale(0.96); }
         .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
@@ -89,18 +93,18 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 24px;
-            margin-top: env(safe-area-inset-top, 20px);
+            margin-bottom: 16px;
+            margin-top: env(safe-area-inset-top, 12px);
         }
-        .progress-text { font-weight: 600; color: var(--text-muted); }
-        .score-text { font-weight: 700; color: var(--primary); }
+        .progress-text { font-weight: 600; color: var(--text-muted); font-size: 14px; }
+        .score-text { font-weight: 700; color: var(--primary); font-size: 14px; }
         
         .progress-bar-container {
             width: 100%;
-            height: 8px;
+            height: 6px;
             background: var(--option-bg);
-            border-radius: 4px;
-            margin-bottom: 32px;
+            border-radius: 3px;
+            margin-bottom: 20px;
             overflow: hidden;
         }
         .progress-bar {
@@ -112,30 +116,30 @@
 
         /* Question & Options */
         .question {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
             line-height: 1.4;
-            margin-bottom: 32px;
+            margin-bottom: 20px;
         }
 
         .options {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            margin-bottom: auto; /* pushes next button to bottom */
+            gap: 10px;
         }
 
         .option {
             background: var(--option-bg);
             border: 2px solid transparent;
-            padding: 16px 20px;
-            border-radius: 16px;
-            font-size: 16px;
+            padding: 14px 18px;
+            border-radius: 14px;
+            font-size: 15px;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s;
             display: flex;
             align-items: center;
+            min-height: 48px;
         }
 
         .option:active:not(.disabled) { transform: scale(0.98); }
@@ -154,8 +158,8 @@
 
         /* Next Button Area */
         .action-area {
-            margin-top: 32px;
-            padding-bottom: env(safe-area-inset-bottom, 20px);
+            margin-top: 20px;
+            padding-bottom: env(safe-area-inset-bottom, 12px);
         }
 
         /* Toast / Milestone Notification */
@@ -249,10 +253,10 @@
 
     <script>
         // ---------------------------------------------------------
-        // 1. DATA SOURCE (The corrected 350-item CSV structure)
-        // Note: For brevity in the single-file setup, a representative block 
-        // covering the corrected items and sample set is embedded. To use all 350, 
-        // paste the entire CSV string below.
+        // 1. DATA SOURCE
+        // 50 questions are randomly selected every session via
+        // Fisher-Yates shuffle + slice. If fewer than 50 unique
+        // questions exist in csvRawData, the session uses all available.
         // ---------------------------------------------------------
         const csvRawData = `
 "No","Question","Correct Answer","Distractor 1","Distractor 2","Distractor 3"
@@ -362,8 +366,13 @@
         function startQuiz() {
             if (allQuestions.length === 0) initData();
             
-            // Prepare session data
-            sessionQueue = shuffle([...allQuestions]).slice(0, SESSION_LIMIT);
+            if (allQuestions.length < SESSION_LIMIT) {
+                showToast(`⚠️ Only ${allQuestions.length} questions available (need 50)`);
+            }
+            
+            // Fisher-Yates shuffle guarantees random selection every session
+            const shuffled = shuffle([...allQuestions]);
+            sessionQueue = shuffled.slice(0, SESSION_LIMIT);
             currentIndex = 0;
             score = 0;
             
