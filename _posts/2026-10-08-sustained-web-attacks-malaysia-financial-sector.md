@@ -278,6 +278,7 @@ IP intelligence + behaviour + timing + application telemetry + infrastructure re
 
 The following public advisories from Malaysian security agencies cover similar classes of activity and may be relevant background. They are listed as potentially related only:
 
+- NC4 ALR-2026-000008 — Heightened Hacktivist and Opportunistic Activity Targeting Malaysian Financial Institutions (privileged ID compromise, application-layer DDoS, no actor attributed): https://www.nc4.gov.my/alertAdvisory-detail/NC4-ALR-2026-000008
 - NACSA/NC4 — Alert on Potential Cyber Attack on Malaysian Domains (DDoS, brute force, SQL injection): https://www.nacsa.gov.my/advisory9.php
 - NACSA — Potential Cyber Attack on ICT Infrastructures Targeting Malaysia Organisations (intrusion, DDoS, web defacement, malware): https://www.nacsa.gov.my/announce5.php
 - MyCERT MA-1254.022025 — Recent Cyber Attacks Targeting Malaysia (data breaches, credential compromise, web defacements): https://www.mycert.org.my/portal/advisory?id=MA-1254.022025
