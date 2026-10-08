@@ -9,7 +9,7 @@ tags: [malaysia, financial-services, web-attacks, ddos, authentication, otp, waf
 
 During October 2026, login, OTP, and public API endpoints across Malaysia's banking, savings, investment/funds and government-linked services have faced sustained high-volume web attacks, Layer 7 denial-of-service, and automated authentication abuse.
 
-The question that matters now is whether critical controls still hold while someone is actively trying to make them fail.
+Separately, on 8 October, Tabung Haji announced it had temporarily suspended services after detecting suspicious cyber activity on Oct 7, describing the suspension as precautionary while it monitors its systems alongside NACSA and CyberSecurity Malaysia. It stated that depositors' savings and personal data remain safe. (The Star, 8 Oct 2026: https://www.thestar.com.my/tech/tech-news/2026/10/08/tabung-haji-suspends-services-after-detecting-suspicious-cyber-activity)
 
 ## Observed infrastructure
 
@@ -275,22 +275,6 @@ IP intelligence + behaviour + timing + application telemetry + infrastructure re
 - Validate SOC detection for Layer 7 attacks.
 - Exercise incident escalation procedures.
 - Establish common dashboards covering availability, authentication and application health.
-
-## Availability is a cybersecurity objective
-
-For financial organisations, cybersecurity is often framed around confidentiality and integrity:
-
-Was data stolen?
-
-Was an account compromised?
-
-Availability deserves equal attention.
-
-An attacker does not need to steal money or data to create significant business impact.
-
-Disrupting access to an essential financial service can affect customers, operations, reputation and confidence.
-
-For critical financial services, resilience should therefore be measured by the ability to maintain essential customer functions while under sustained hostile traffic.
 
 ## Potentially related national advisories
 
