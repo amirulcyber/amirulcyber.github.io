@@ -1,6 +1,8 @@
 ---
 title: Sustained Web Attacks Against Malaysia's Financial Sector
 description: Login, OTP, and API endpoints across Malaysia's banking, savings, investment/funds and government-linked services face sustained automated abuse. The question is whether controls hold while under attack.
+image: /assets/img/figure1-sustained-web-attacks-my.jpg
+thumbnail: /assets/img/figure1-sustained-web-attacks-my.jpg
 date: 2026-10-08 00:00:00 +0800
 permalink: /2026/10/08/sustained-web-attacks-malaysia-financial-sector/
 categories: [Cybersecurity, Threat Intelligence]
@@ -10,6 +12,8 @@ tags: [malaysia, financial-services, web-attacks, ddos, authentication, otp, waf
 During October 2026, login, OTP, and public API endpoints across Malaysia's banking, savings, investment/funds and government-linked services have faced sustained high-volume web attacks, Layer 7 denial-of-service, and automated authentication abuse.
 
 Separately, on 8 October, Tabung Haji announced it had temporarily suspended services after detecting suspicious cyber activity on Oct 7, describing the suspension as precautionary while it monitors its systems alongside NACSA and CyberSecurity Malaysia. It stated that depositors' savings and personal data remain safe. (The Star, 8 Oct 2026: https://www.thestar.com.my/tech/tech-news/2026/10/08/tabung-haji-suspends-services-after-detecting-suspicious-cyber-activity)
+
+{% include figure.html src="/assets/img/figure1-sustained-web-attacks-my.jpg" alt="Cover graphic: sustained large-scale web attacks against Malaysia's digital infrastructure, October 2026" caption="Figure 1. Sustained web attacks against Malaysia's financial sector, October 2026." eager=true width="1200" height="655" %}
 
 ## Observed infrastructure
 
