@@ -17,7 +17,7 @@ Separately, on 8 October, Tabung Haji announced it had temporarily suspended ser
 
 ## Observed infrastructure
 
-Seven prefixes and three ASNs illustrate the pattern.
+Seven prefixes and one ASN illustrate the pattern.
 
 ### 1. The attack infrastructure is highly distributed
 
@@ -57,13 +57,7 @@ This is consistent with an attacker using distributed infrastructure or multiple
 
 Several observed network identifiers have documented upstream or provider relationships.
 
-For example, infrastructure associated with:
-
-- AS219xxx
-- AS625xx
-- AS200xxx
-
-shows network-level relationships within the broader hosting ecosystem.
+For example, infrastructure associated with AS625xx shows network-level relationships within the broader hosting ecosystem.
 
 This is an important intelligence lead.
 
