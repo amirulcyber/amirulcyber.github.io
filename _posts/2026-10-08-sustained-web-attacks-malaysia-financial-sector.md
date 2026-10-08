@@ -1,6 +1,6 @@
 ---
 title: Sustained Web Attacks Against Malaysia's Financial Sector
-description: Login, OTP, and API endpoints across Malaysia's banking, savings, investment/funds and government-linked services face sustained automated abuse. The question is whether controls hold while under attack.
+description: Internet-facing services across Malaysia's banking, savings, investment/funds and government-linked services face sustained Layer 7 abuse. The question is whether controls hold while under attack.
 image: /assets/img/figure1-sustained-web-attacks-my.jpg
 thumbnail: /assets/img/figure1-sustained-web-attacks-my.jpg
 date: 2026-10-08 00:00:00 +0800
@@ -9,7 +9,7 @@ categories: [Cybersecurity, Threat Intelligence]
 tags: [malaysia, financial-services, web-attacks, ddos, authentication, otp, waf, rate-limiting, bot-management]
 ---
 
-During October 2026, login, OTP, and public API endpoints across Malaysia's banking, savings, investment/funds and government-linked services have faced sustained high-volume web attacks, Layer 7 denial-of-service, and automated authentication abuse.
+During October 2026, internet-facing services across Malaysia's banking, savings, investment/funds and government-linked services have faced sustained high-volume web attacks and Layer 7 denial-of-service activity.
 
 Separately, on 8 October, Tabung Haji announced it had temporarily suspended services after detecting suspicious cyber activity on Oct 7, describing the suspension as precautionary while it monitors its systems alongside NACSA and CyberSecurity Malaysia. It stated that depositors' savings and personal data remain safe. (The Star, 8 Oct 2026: https://www.thestar.com.my/tech/tech-news/2026/10/08/tabung-haji-suspends-services-after-detecting-suspicious-cyber-activity)
 
@@ -106,39 +106,39 @@ distributed infrastructure + automation + application-layer requests
 
 can be enough to degrade a poorly protected service.
 
-A Layer 7 attack may consume application, API, database or backend resources without requiring enormous network bandwidth.
+A Layer 7 attack may consume application, database or backend resources without requiring enormous network bandwidth.
 
 Potential consequences include:
 
 - Increased application latency
-- API exhaustion
+- Service exhaustion
 - Database contention
-- Authentication failures
-- Customer account lockouts
+- Service errors
+- Customer-facing disruption
 - Increased infrastructure costs
 - Service degradation
 - Complete application unavailability
 
 This makes application-layer resilience just as important as traditional volumetric DDoS protection.
 
-## Authentication is also an availability problem
+## Application-layer pressure is also an availability problem
 
-Automated login and OTP activity can create customer impact even when no account is successfully compromised.
+Sustained Layer 7 activity can create customer impact even when no system is breached.
 
-Repeated authentication attempts can trigger:
+Repeated application-layer requests can trigger:
 
-- Account lockouts
-- OTP delivery spikes
-- Authentication-service load
-- Customer confusion
+- Increased latency
+- Service errors
+- Backend resource exhaustion
+- Customer-facing outages
 - Increased support demand
 - Phishing opportunities
 
 This leads to an important distinction:
 
-An authentication system can successfully prevent account takeover while still failing as a resilient customer service.
+A system can successfully keep attackers out while still failing as a resilient customer service.
 
-CISOs should therefore assess authentication controls for both security and abuse resilience.
+Internet-facing systems should therefore be assessed for both security and abuse resilience.
 
 ## Controls that need validation
 
