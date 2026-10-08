@@ -292,6 +292,18 @@ Disrupting access to an essential financial service can affect customers, operat
 
 For critical financial services, resilience should therefore be measured by the ability to maintain essential customer functions while under sustained hostile traffic.
 
+## Potentially related national advisories
+
+The following public advisories from Malaysian security agencies cover similar classes of activity and may be relevant background. They are listed as potentially related only:
+
+- NACSA/NC4 — Alert on Potential Cyber Attack on Malaysian Domains (DDoS, brute force, SQL injection): https://www.nacsa.gov.my/advisory9.php
+- NACSA — Potential Cyber Attack on ICT Infrastructures Targeting Malaysia Organisations (intrusion, DDoS, web defacement, malware): https://www.nacsa.gov.my/announce5.php
+- MyCERT MA-1254.022025 — Recent Cyber Attacks Targeting Malaysia (data breaches, credential compromise, web defacements): https://www.mycert.org.my/portal/advisory?id=MA-1254.022025
+- NACSA/MyCERT June–July 2026 — Joomla JCE (CVE-2026-48907) and SP Page Builder (CVE-2026-48908) pre-authentication RCE under active exploitation: https://www.nacsa.gov.my/alert.php
+- MyCERT MA-1406.112025 — FortiWeb path-traversal vulnerability (CVE-2025-64446)
+
+Readers should validate current guidance with their local security agency (such as MyCERT or NACSA) before acting on it. This list is not exhaustive, and none of these advisories is presented here as confirmation of the activity described above.
+
 ## Closing check
 
 The available evidence does not establish that all observed activity originates from one threat actor or campaign. It does show internet-facing financial services being tested by distributed, automated infrastructure.
