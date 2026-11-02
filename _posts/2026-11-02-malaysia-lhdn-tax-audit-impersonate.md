@@ -1,5 +1,5 @@
 ---
-title: Malaysia LHDN Tax Audit Phishing - Late October 2026
+title: Malaysia LHDN Tax Audit Phishing - End Oct 2026 - Silver Fox
 description: Fake LHDN tax-audit wave, 26 October 2026. No credential form, one download button, ZIPs sideloading signed Windows binaries. 29 of 32 indicators unpublished; probable Silver Fox. IOCs and screenshots inside.
 image: /assets/img/figure1-lhdn-fake-audit-notice.jpg
 thumbnail: /assets/img/figure1-lhdn-fake-audit-notice.jpg
@@ -41,7 +41,7 @@ The operator rotates builds, not just domains. `mhftee.my[.]id`, missed by the f
 
 ## Second stage and C2, via sandbox
 
-Static analysis sees the loader. A third-party sandbox run watched it execute: on detonation the DLL pulls an encrypted second stage, `devin-us.dat`, from a GitHub release asset (`github.com/mariauyrnq/devin-update`, v1.0.01), then unpacks a Go client built from `overlord-client` packages, the Overlord RAT. It opens persistent WebSocket channels to `devin-us[.]com`, which hosts the TankRat web panel (Simplified Chinese admin login, TOTP plus OIDC). Observed capabilities: live display streaming, hidden virtual desktops, keystroke injection, clipboard theft, and a fake Windows Update screen shown while the operator works.
+Static analysis sees the loader. A third-party sandbox run watched it execute: on detonation the DLL pulls an encrypted second stage, `devin-us.dat`, from a GitHub release asset (`github[.]com/mariauyrnq/devin-update`, v1.0.01), then unpacks a Go client built from `overlord-client` packages, the Overlord RAT. It opens persistent WebSocket channels to `devin-us[.]com`, which hosts the TankRat web panel (Simplified Chinese admin login, TOTP plus OIDC). Observed capabilities: live display streaming, hidden virtual desktops, keystroke injection, clipboard theft, and a fake Windows Update screen shown while the operator works.
 
 Runtime behaviors worth detecting: the DLL is invoked via `rundll32.exe`, checks for `vboxguest.sys` and VMware drivers, and looks up the victim IP via `api[.]ipify[.]org`. That last is a public IP API used by legitimate software too, a behavior marker rather than a block target. A related lure filename, `ITR_Scrutiny_240_Notice_PAN_PAN_ABCDE1234F_AY2025-26_05082026.exe`, mimics Indian income-tax scrutiny notices, the same kit in a different national costume.
 
@@ -56,10 +56,6 @@ Attribution note: the sandbox assessment does not confirm Silver Fox. It tracks 
 That host also exposes unauthenticated `/stats.json` and `/count.php`. Three reads across 30 October showed visits climbing 357 to 366 while downloads stayed at 16. That counter is the operator's conversion metric, not a victim count: no dedupe, operator-resettable.
 
 ## Block on the payload, not the lure
-
-Alert on `topoedit.exe` executing from anywhere outside System32/WinSxS, and on any non-Microsoft `badata_x64.dll` in a directory containing TrueBurner. Never on the signature and never on network imports. For detection, prefer the page markers over the domain: the wire hash and the favicon survive the domain churn that a blocklist does not.
-
-Observed 26 October to 2 November 2026; every endpoint below returned `200` when rechecked 2 Nov, payloads included. Two formerly-listed hosts no longer serve campaign content and are excluded: `149[.]104[.]24[.]197` is silent, `45[.]192[.]110[.]206` answers `400` on bare and vhost. Domains defanged.
 
 **Serving domains (LHDN arm):**
 
@@ -95,7 +91,7 @@ Observed 26 October to 2 November 2026; every endpoint below returned `200` when
 **Sandbox-derived (third-party dynamic analysis):**
 
 - C2 and TankRat panel: `devin-us[.]com`
-- Second-stage staging: `github.com/mariauyrnq/devin-update/releases/download/v1.0.01/devin-us.dat`
+- Second-stage staging: `github[.]com/mariauyrnq/devin-update/releases/download/v1.0.01/devin-us.dat`
 - Related lure filename (India arm): `ITR_Scrutiny_240_Notice_PAN_PAN_ABCDE1234F_AY2025-26_05082026.exe`
 - Runtime behaviors (detect; do not block the legitimate service): `rundll32.exe` invoking `badata_x64.dll`; VM-driver checks; victim IP lookup via `api[.]ipify[.]org`
 
