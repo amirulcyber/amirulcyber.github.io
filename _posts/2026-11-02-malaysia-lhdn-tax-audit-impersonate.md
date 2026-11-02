@@ -114,5 +114,6 @@ That host also exposes unauthenticated `/stats.json` and `/count.php`. Three rea
 - [NetbyteSEC, Malaysian WhatsApp Phishing Wave Delivers Overlord Malware](https://notes.netbytesec.com/2026/10/malaysian-whatsapp-phishing-wave.html) — the Overlord chain sharing our `topoedit.exe` host hash.
 - [Pelagos Intel, SilverFox in the Desktop](https://research.pelagos-intel.com/silverfox-in-the-desktop) — the earliest public description of this delivery shape.
 - [MyCERT MA-1491.102026](https://www.mycert.org.my/portal/advisory?id=MA-1491.102026) — a separate Malaysian ManageEngine-based chain from the same period; different payloads from this cluster.
-- [MyCERT MA-597.042016](https://www.mycert.org.my/portal/advisory?id=MA-597.042016) — LHDN-email phishing in 2016; LHDN impersonation is a decade-old problem.
+- [MyCERT warning on WhatsApp malware, via Lowyat](https://www.lowyat.net/2026/396842/mycert-high-risk-malware-whatsapp-web-desktop-malaysia/) — high-risk malware targeting WhatsApp Web and Desktop users in Malaysia.
+- [Related thread on X](https://x.com/bomccss/status/2099758827386319001).
 
