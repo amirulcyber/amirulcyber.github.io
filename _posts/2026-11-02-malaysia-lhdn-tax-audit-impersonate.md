@@ -109,3 +109,10 @@ That host also exposes unauthenticated `/stats.json` and `/count.php`. Three rea
 - Related lure filename (India arm): `ITR_Scrutiny_240_Notice_PAN_PAN_ABCDE1234F_AY2025-26_05082026.exe`
 - Runtime behaviors (detect; do not block the legitimate service): `rundll32.exe` invoking `badata_x64.dll`; VM-driver checks; victim IP lookup via `api[.]ipify[.]org`
 
+**Further reading**
+
+- [NetbyteSEC, Malaysian WhatsApp Phishing Wave Delivers Overlord Malware](https://notes.netbytesec.com/2026/10/malaysian-whatsapp-phishing-wave.html) — the Overlord chain sharing our `topoedit.exe` host hash.
+- [Pelagos Intel, SilverFox in the Desktop](https://research.pelagos-intel.com/silverfox-in-the-desktop) — the earliest public description of this delivery shape.
+- [MyCERT MA-1491.102026](https://www.mycert.org.my/portal/advisory?id=MA-1491.102026) — a separate Malaysian ManageEngine-based chain from the same period; different payloads from this cluster.
+- [MyCERT MA-597.042016](https://www.mycert.org.my/portal/advisory?id=MA-597.042016) — LHDN-email phishing in 2016; LHDN impersonation is a decade-old problem.
+
