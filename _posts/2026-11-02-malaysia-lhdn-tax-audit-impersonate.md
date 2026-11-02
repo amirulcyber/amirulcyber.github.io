@@ -29,7 +29,7 @@ To check exposure, search EDR and proxy/DNS logs for the filenames, hashes, and 
 
 Walk it top to bottom: LHDN crest (`logopx.ico`), `No. Rujukan: LHDN/CP.08/WP.05/ST.03/2026`, the heading NOTIS HASIL AUDIT DAN PENETAPAN CUKAI, a findings box (RM 50,000.00 under-reported income, down to a `RM 50,00.00` typo that survives in every variant, which is how you know one builder made them all), a seven-day document demand, and the anchor `MUAT TURUN DOKUMEN LENGKAP` pointing at `CP14_Notice_D2921116870_2025_2026-10-27.zip`. The branded pages contain no forms, inputs, or buttons. There is no credential form because none is needed. The click is the compromise.
 
-I first recorded the wrong hash for this page: the browser-saved copy (`cfcc4e39…`, 13,615 B) is Firefox's re-serialisation, not the wire bytes (`644e5b4f…`, 13,633 B). A re-fetch caught it, and the stored capture confirmed the server never changed. Three branded domains serve byte-identical wire bytes, so quote the wire hash. The DOM copy is reproducible only from a Firefox capture.
+I first hashed the browser-saved copy (`cfcc4e39…`), a re-serialisation. The wire bytes (`644e5b4f…`, 13,633 B) are the citable value, identical across all three branded domains.
 
 ## Two signed binaries, one family
 
