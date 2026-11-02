@@ -1,5 +1,5 @@
 ---
-title: A Fake LHDN Tax-Audit Notice on 21 Live Endpoints
+title: Malaysia LHDN Tax Audit Phishing - Late October 2026
 description: Fake LHDN tax-audit wave, 26 October 2026. No credential form, one download button, ZIPs sideloading signed Windows binaries. 29 of 32 indicators unpublished; probable Silver Fox. IOCs and screenshots inside.
 image: /assets/img/figure1-lhdn-fake-audit-notice.jpg
 thumbnail: /assets/img/figure1-lhdn-fake-audit-notice.jpg
