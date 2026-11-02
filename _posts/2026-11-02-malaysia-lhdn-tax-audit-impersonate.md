@@ -69,8 +69,6 @@ The same C2 surfaced a month earlier in Japanese tax-phishing emails (subject 'T
 
 `satgob-mx[.]shop` sits on the same `103.97.131[.]121` as the LHDN pages but wears Mexico's SAT branding with different assets (no `logopx.ico`). Its `FILE_LIST` holds only two files: the Malaysian MyInvois and Tenaga e-Invoice ZIPs. One host, two national lures, one payload pool, which is most of the single-operator argument.
 
-That host also exposes unauthenticated `/stats.json` and `/count.php`. Three reads across 30 October showed visits climbing 357 to 366 while downloads stayed at 16. That counter is the operator's conversion metric, not a victim count: no dedupe, operator-resettable.
-
 ## Block on the payload, not the lure
 
 **Serving domains (LHDN arm):**
