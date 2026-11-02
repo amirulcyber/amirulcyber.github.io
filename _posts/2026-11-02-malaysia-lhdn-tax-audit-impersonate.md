@@ -13,6 +13,18 @@ On 26 October 2026, Malaysian finance staff started receiving a tax-audit memora
 
 {% include figure.html src="/assets/img/figure1-lhdn-fake-audit-notice.jpg" alt="Forged LHDN tax-audit notice as served from hasilgov-my.shop: crest, reference number, audit findings, and the MUAT TURUN DOKUMEN LENGKAP download button" caption="Figure 1. The forged notice on hasilgov-my[.]shop, captured 30 Oct 2026. Everything a recipient checks is present; the only action on offer is the download." eager=true width="1200" height="1335" %}
 
+## Risk to a Malaysian finance team
+
+The business risk is a trusted foothold, not a stolen form. The lure impersonates a tax audit with a seven-working-day deadline, which pressures finance staff to act before verifying. One click downloads a ZIP pairing a genuine signed Windows program with a malicious DLL, so signature and reputation controls see nothing wrong.
+
+Exposed are staff handling LHDN correspondence, tax filing, and e-invoice processing. The exact lure message for this wave was never recovered; the wider family has historically arrived over WhatsApp and email, so assume any channel.
+
+Have your team block the eight domains below at DNS and TLS inspection, alert on `topoedit.exe` outside System32/WinSxS and on any non-Microsoft `badata_x64.dll` beside TrueBurner, and verify every audit notice through the LHDN portal or known LHDN contacts, never through page links.
+
+Expect signature AV to fail (both hosts are genuinely signed), static import rules to fail (neither DLL imports networking functions), and domain blocklists to decay (the operator rotates domains and rebuilds DLLs).
+
+To check exposure, search EDR and proxy/DNS logs for the filenames, hashes, and domains below, and check `%TEMP%`, Downloads, and `C:\ProgramData\` for the archives and `.admin_elevation` / `.admin_persist` artefacts.
+
 ## The page is the delivery mechanism
 
 Walk it top to bottom: LHDN crest (`logopx.ico`), `No. Rujukan: LHDN/CP.08/WP.05/ST.03/2026`, the heading NOTIS HASIL AUDIT DAN PENETAPAN CUKAI, a findings box (RM 50,000.00 under-reported income, down to a `RM 50,00.00` typo that survives in every variant, which is how you know one builder made them all), a seven-day document demand, and the anchor `MUAT TURUN DOKUMEN LENGKAP` pointing at `CP14_Notice_D2921116870_2025_2026-10-27.zip`. The branded pages contain no forms, inputs, or buttons. There is no credential form because none is needed. The click is the compromise.
@@ -72,13 +84,3 @@ Observed 26 October to 2 November 2026; every endpoint below returned `200` when
 - `tedutil.dll` (MyInvois), 109,056 B: `9500e41175cbe66a3e95bd863e0e855cf15f51ab9a44024fa082697ec992db0f`
 - `tedutil.dll` (Tenaga), 109,568 B: `4841193715abddabd3b85e8d9bab651ffd7169286365f59b6dc0f1fde1be8d97`
 
-**Page markers:** wire `644e5b4f53990e38b3e202cbc6e24a0cc56592ce23ad4724a1a27e8165bc6979` (13,633 B); favicon `logopx.ico` (hash `940271831`); asset `马来西亚images.png` retained in every variant.
-
-Two things this post does not claim. No C2 configuration was recovered, so the Overlord-versus-ValleyRAT call is unadjudicated, and the delivery lure (the message that brought recipients to the page) was never captured. Attribution stays at probable: a shared kit builder is the standing counter-hypothesis, answered only by the shared hosting and the shared payload pool, not dismissed by them.
-
-```
-# the branded pages, byte-identical on the wire (13,633 B)
-644e5b4f53990e38b3e202cbc6e24a0cc56592ce23ad4724a1a27e8165bc6979
-```
-
-Recheck before blocking: the operator cleans hosts rather than losing them (`45.192.110.206` dropped its listeners on 2 Nov with the box still up), and the first capture missed `mhftee.my[.]id` entirely. Absence on one check is not absence.
