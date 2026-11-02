@@ -1,6 +1,6 @@
 ---
 title: A Fake LHDN Tax-Audit Notice on 21 Live Endpoints
-description: 26 October 2026 wave impersonating Lembaga Hasil Dalam Negeri Malaysia. No credential form, one download button, and ZIPs that sideload genuine signed Windows binaries. 29 of 32 indicators absent from four vendor reports; probable Silver Fox. IOCs and screenshots inside.
+description: Fake LHDN tax-audit wave, 26 October 2026. No credential form, one download button, ZIPs sideloading signed Windows binaries. 29 of 32 indicators unpublished; probable Silver Fox. IOCs and screenshots inside.
 image: /assets/img/figure1-lhdn-fake-audit-notice.jpg
 thumbnail: /assets/img/figure1-lhdn-fake-audit-notice.jpg
 date: 2026-11-02 00:00:00 +0800
