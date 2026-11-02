@@ -1,7 +1,7 @@
 ---
 title: Malaysia LHDN Tax Audit Phishing Campaign – Silver Fox (Oct 2026)
 description: Fake LHDN tax-audit wave, 26 October 2026. No credential form, one download button, ZIPs sideloading signed Windows binaries. 29 of 32 indicators unpublished; probable Silver Fox. IOCs and screenshots inside.
-image: /assets/img/figure1-lhdn-fake-audit-notice.jpg
+image: /assets/img/og-card-lhdn-tax-audit.jpg
 thumbnail: /assets/img/figure1-lhdn-fake-audit-notice.jpg
 date: 2026-11-02 00:00:00 +0800
 permalink: /2026/11/02/malaysia-lhdn-tax-audit-impersonate/
