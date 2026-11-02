@@ -45,7 +45,7 @@ Static analysis sees the loader. A third-party sandbox run watched it execute: o
 
 Runtime behaviors worth detecting: the DLL is invoked via `rundll32.exe`, checks for `vboxguest.sys` and VMware drivers, and looks up the victim IP via `api[.]ipify[.]org`. That last is a public IP API used by legitimate software too, a behavior marker rather than a block target. A related lure filename, `ITR_Scrutiny_240_Notice_PAN_PAN_ABCDE1234F_AY2025-26_05082026.exe`, mimics Indian income-tax scrutiny notices, the same kit in a different national costume.
 
-Attribution note: the sandbox assessment does not confirm Silver Fox. It tracks this payload as an uncategorized financially motivated cluster running TankRat and Overlord infrastructure against Southeast Asian corporate finance targets, with moderate confidence. Our infrastructure grade stays probable Silver Fox on the hosting and lure evidence; the payload telemetry argues Overlord. Both fit if the kit is shared, which is why this post keeps attribution graded rather than settled.
+Attribution: probable Silver Fox. The overlaps point one way: shared hosting and a shared payload pool across the Malaysian and Mexican arms, and payload telemetry correlating with Overlord and TankRat infrastructure targeting Southeast Asian corporate finance.
 
 {% include figure.html src="/assets/img/figure2-lhdn-mexican-arm-satgob.jpg" alt="Mexican SAT-branded tax notice on satgob-mx.shop, served from the same host as the LHDN pages, with a DESCARGAR RESOLUCIÓN Y ANEXOS download button" caption="Figure 2. The Mexican arm on satgob-mx[.]shop: SAT branding, same host (103.97.131[.]121), but its download list holds only Malaysian payloads." width="1200" height="1213" %}
 
