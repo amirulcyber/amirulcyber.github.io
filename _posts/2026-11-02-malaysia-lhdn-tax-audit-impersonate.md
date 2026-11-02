@@ -61,6 +61,8 @@ Runtime behaviors worth detecting: the DLL is invoked via `rundll32.exe`, checks
 
 Attribution: probable Silver Fox. The overlaps point one way: shared hosting and a shared payload pool across the Malaysian and Mexican arms, and payload telemetry correlating with Overlord and TankRat infrastructure targeting Southeast Asian corporate finance.
 
+The same C2 surfaced a month earlier in Japanese tax-phishing emails (subject 'Tax Payment Notice Regarding Final Income Tax Return') linking `mjdou[.]vip`, hosted on `149[.]104[.]24[.]197` — the address that served this cluster's Malaysian domains before going silent. The downloaded ZIP drops an EXE plus `event.dll`, a DonutLoader yielding to Overlord, beaconing to the same `devin-us[.]com`. Analyses: [VirusTotal](https://virustotal.com/gui/file/ba0a76532db536e62034c212536f3e60594cd2248fdedc9ba73b8a2380367f99), [Triage](https://tria.ge/260915-hmt48ashld/behavioral1), [ANY.RUN](https://app.any.run/tasks/59aad69e-d2b1-44fd-934e-9db8e617bdd5), [urlscan](https://urlscan.io/result/01a0a3d4-808e-734f-b032-31c5d6fe886e/).
+
 {% include figure.html src="/assets/img/figure2-lhdn-mexican-arm-satgob.jpg" alt="Mexican SAT-branded tax notice on satgob-mx.shop, served from the same host as the LHDN pages, with a DESCARGAR RESOLUCIÓN Y ANEXOS download button" caption="Figure 2. The Mexican arm on satgob-mx[.]shop: SAT branding, same host (103.97.131[.]121), but its download list holds only Malaysian payloads." width="1200" height="1213" %}
 
 ## The Mexican arm serves Malaysian payloads
@@ -108,6 +110,7 @@ That host also exposes unauthenticated `/stats.json` and `/count.php`. Three rea
 - Second-stage staging: `github[.]com/mariauyrnq/devin-update/releases/download/v1.0.01/devin-us.dat`
 - Related lure filename (India arm): `ITR_Scrutiny_240_Notice_PAN_PAN_ABCDE1234F_AY2025-26_05082026.exe`
 - Runtime behaviors (detect; do not block the legitimate service): `rundll32.exe` invoking `badata_x64.dll`; VM-driver checks; victim IP lookup via `api[.]ipify[.]org`
+- Japan arm (September): lure `mjdou[.]vip` on `149[.]104[.]24[.]197`; C2 IP `103[.]59[.]101[.]28`; associated file `ba0a76532db536e62034c212536f3e60594cd2248fdedc9ba73b8a2380367f99`
 
 **Further reading**
 
@@ -115,5 +118,5 @@ That host also exposes unauthenticated `/stats.json` and `/count.php`. Three rea
 - [Pelagos Intel, SilverFox in the Desktop](https://research.pelagos-intel.com/silverfox-in-the-desktop) — the earliest public description of this delivery shape.
 - [MyCERT MA-1491.102026](https://www.mycert.org.my/portal/advisory?id=MA-1491.102026) — a separate Malaysian ManageEngine-based chain from the same period; different payloads from this cluster.
 - [MyCERT warning on WhatsApp malware, via Lowyat](https://www.lowyat.net/2026/396842/mycert-high-risk-malware-whatsapp-web-desktop-malaysia/) — high-risk malware targeting WhatsApp Web and Desktop users in Malaysia.
-- [Related thread on X](https://x.com/bomccss/status/2099758827386319001).
+- [Thread on X](https://x.com/bomccss/status/2099758827386319001) — Japanese-arm observations: `mjdou[.]vip` lure on `149[.]104[.]24[.]197`, same `devin-us[.]com` C2, DonutLoader-to-Overlord chain with sandbox links.
 
