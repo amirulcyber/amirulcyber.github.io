@@ -39,6 +39,14 @@ Neither DLL imports a single networking function. No `ws2_32`, no `socket`, no `
 
 The operator rotates builds, not just domains. `mhftee.my[.]id`, missed by the first capture and surfaced days later, serves the byte-identical host EXE with a recompiled DLL: 132,096 B against 135,680 B.
 
+## Second stage and C2, via sandbox
+
+Static analysis sees the loader. A third-party sandbox run watched it execute: on detonation the DLL pulls an encrypted second stage, `devin-us.dat`, from a GitHub release asset (`github.com/mariauyrnq/devin-update`, v1.0.01), then unpacks a Go client built from `overlord-client` packages, the Overlord RAT. It opens persistent WebSocket channels to `devin-us[.]com`, which hosts the TankRat web panel (Simplified Chinese admin login, TOTP plus OIDC). Observed capabilities: live display streaming, hidden virtual desktops, keystroke injection, clipboard theft, and a fake Windows Update screen shown while the operator works.
+
+Runtime behaviors worth detecting: the DLL is invoked via `rundll32.exe`, checks for `vboxguest.sys` and VMware drivers, and looks up the victim IP via `api[.]ipify[.]org`. That last is a public IP API used by legitimate software too, a behavior marker rather than a block target. A related lure filename, `ITR_Scrutiny_240_Notice_PAN_PAN_ABCDE1234F_AY2025-26_05082026.exe`, mimics Indian income-tax scrutiny notices, the same kit in a different national costume.
+
+Attribution note: the sandbox assessment does not confirm Silver Fox. It tracks this payload as an uncategorized financially motivated cluster running TankRat and Overlord infrastructure against Southeast Asian corporate finance targets, with moderate confidence. Our infrastructure grade stays probable Silver Fox on the hosting and lure evidence; the payload telemetry argues Overlord. Both fit if the kit is shared, which is why this post keeps attribution graded rather than settled.
+
 {% include figure.html src="/assets/img/figure2-lhdn-mexican-arm-satgob.jpg" alt="Mexican SAT-branded tax notice on satgob-mx.shop, served from the same host as the LHDN pages, with a DESCARGAR RESOLUCIÓN Y ANEXOS download button" caption="Figure 2. The Mexican arm on satgob-mx[.]shop: SAT branding, same host (103.97.131[.]121), but its download list holds only Malaysian payloads." width="1200" height="1213" %}
 
 ## The Mexican arm serves Malaysian payloads
@@ -83,4 +91,11 @@ Observed 26 October to 2 November 2026; every endpoint below returned `200` when
 - `…INV77194….exe` / `…INV16697….exe` (`topoedit.exe` host, identical), 227,688 B: `1688fe4698c45680851f5d90aff71fffdccb19c1b283a8c10cbc729c8efca7d8`
 - `tedutil.dll` (MyInvois), 109,056 B: `9500e41175cbe66a3e95bd863e0e855cf15f51ab9a44024fa082697ec992db0f`
 - `tedutil.dll` (Tenaga), 109,568 B: `4841193715abddabd3b85e8d9bab651ffd7169286365f59b6dc0f1fde1be8d97`
+
+**Sandbox-derived (third-party dynamic analysis):**
+
+- C2 and TankRat panel: `devin-us[.]com`
+- Second-stage staging: `github.com/mariauyrnq/devin-update/releases/download/v1.0.01/devin-us.dat`
+- Related lure filename (India arm): `ITR_Scrutiny_240_Notice_PAN_PAN_ABCDE1234F_AY2025-26_05082026.exe`
+- Runtime behaviors (detect; do not block the legitimate service): `rundll32.exe` invoking `badata_x64.dll`; VM-driver checks; victim IP lookup via `api[.]ipify[.]org`
 
