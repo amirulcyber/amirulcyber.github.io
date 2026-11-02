@@ -9,7 +9,21 @@ categories: [Cybersecurity, Threat Intelligence]
 tags: [malaysia, lhdn, tax-phish, silver-fox, void-arachne, dll-sideloading, ioc]
 ---
 
-On 26 October 2026, Malaysian finance staff started receiving a tax-audit memorandum that looked exactly like correspondence from Lembaga Hasil Dalam Negeri Malaysia: the crest, a file reference, a forged director-general signature, and a seven-working-day deadline under section 99 of the Income Tax Act 1967. It was served from at least 21 live endpoints across four hosting arrangements. The page asked for no credentials. It had one interactive element, a download button, and the downloads were the attack: ZIP archives pairing genuine signed Windows programs with malicious DLLs. Of 32 verified indicators, 29 appear in none of the four vendor reports covering this campaign family. The grading is probable Silver Fox (Void Arachne), and this post keeps it at probable throughout.
+## Overview
+
+A campaign impersonating Malaysia's Inland Revenue Board (Lembaga Hasil Dalam Negeri Malaysia, or LHDN) is using fraudulent tax-audit notices to distribute malware disguised as legitimate Windows software.
+
+First observed on 26 October 2026, the campaign uses LHDN-branded pages featuring the agency's crest, fabricated reference numbers, a forged director-general signature and an urgent seven-working-day deadline. The notices claim to concern tax under-reporting and request supporting documentation.
+
+Unlike conventional phishing campaigns, the pages do not attempt to collect usernames or passwords. Instead, they direct visitors to download purported tax-audit documents packaged as ZIP archives.
+
+The archives contain legitimate, digitally signed Windows executables paired with malicious DLLs. When executed, the applications load the malicious libraries through DLL sideloading.
+
+The investigation identified 21 live serving endpoints across four hosting arrangements and two distinct software delivery chains involving Glorylogic True Burner 10.7.0.0 and Microsoft's Topology Editor.
+
+Infrastructure analysis also revealed an interesting overlap with a Mexican SAT-themed impersonation domain hosted on the same server as the Malaysian LHDN campaign. The shared infrastructure exposes the Malaysian payload collection through both national tax-themed lures.
+
+The campaign is assessed as probably associated with Silver Fox (Void Arachne), although the available evidence does not establish definitive attribution.
 
 {% include figure.html src="/assets/img/figure1-lhdn-fake-audit-notice.jpg" alt="Forged LHDN tax-audit notice as served from hasilgov-my.shop: crest, reference number, audit findings, and the MUAT TURUN DOKUMEN LENGKAP download button" caption="Figure 1. The forged notice on hasilgov-my[.]shop, captured 30 Oct 2026. Everything a recipient checks is present; the only action on offer is the download." eager=true width="1200" height="1335" %}
 
