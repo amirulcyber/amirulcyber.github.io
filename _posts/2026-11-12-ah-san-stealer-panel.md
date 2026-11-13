@@ -1,7 +1,7 @@
 ---
 title: 35 GB of Indian Browser Data, Filed Under a Slur — Inside the Ah San Stealer Panel
 description: Hundreds of Indian victims' browser hauls filed under a slur on the operator's box. Tax lures drop signed-host sideload pairs (Adobe, Evernote) carrying unknown stealer DLLs to a CHWM-branded panel. Possible Silver Fox second chain.
-image: /assets/img/og-card-cajefez-stealer-panel.jpg
+image: /assets/img/og-card-cajefez-editorial.jpg
 thumbnail: /assets/img/figure1-cajefez-lure-in.jpg
 date: 2026-11-12 00:00:00 +0800
 permalink: /2026/11/12/ah-san-stealer-panel/
