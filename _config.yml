@@ -28,6 +28,11 @@ defaults:
     values:
       layout: page
 
+# Design docs live in the repo but are not part of the published site.
+exclude:
+  - DESIGN.md
+  - internal/
+
 # Clean, predictable post URLs: /YYYY/MM/DD/slug/
 # Jekyll's default permalink expands `categories` into the URL
 # (e.g. /cybersecurity/threat-intelligence/2026/08/31/slug.html),
