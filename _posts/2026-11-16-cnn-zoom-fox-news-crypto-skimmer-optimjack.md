@@ -77,25 +77,25 @@ TONr 0:2033556a49942224b486e70fa8beeaeae4265dc4b10adffec2326c002d30397b
 
 15 captured page loads, sorted by traffic. First column is the page domain as observed; second column is the exact page URL that loaded the payload:
 
-| Domain | Exact page URL that loads the payload | Payload URL |
+| Domain | Exact page URL that loads the payload | Hijacker JS URL |
 |---|---|---|
-| edition.cnn.com | `https://edition.cnn.com/` | `https://1688360.cc/track.js` |
-| zoom.com | `https://www.zoom.com/` | `https://1688360.cc/track.js` |
-| foxnews.com | `https://www.foxnews.com/` | `https://1688360.cc/track.js` |
-| bbc.com | `https://www.bbc.com/news/articles/c6wy9lynq4qno` | `https://1688360.cc/track.js` |
-| salesforce.com | `https://www.salesforce.com/` | `https://1688360.cc/track.js` |
-| about.gitlab.com | `https://about.gitlab.com/whats-new/19-0/` | `https://1688360.cc/track.js` |
-| ae.com | `https://www.ae.com/us/en` | `https://1688360.cc/track.js` |
-| hootsuite.com | `https://www.hootsuite.com/error/lost-owly` | `https://1688360.cc/track.js` |
-| smartsheet.com | `https://www.smartsheet.com/` | `https://1688360.cc/track.js` |
-| wwws.airfrance.it | `https://wwws.airfrance.it/` | `https://1688360.cc/track.js` |
-| virginmediao2.co.uk | `https://www.virginmediao2.co.uk/help/identity` | `https://1688360.cc/track.js` |
-| stamps.com | `https://www.stamps.com/` | `https://1688360.cc/track.js` |
-| tricentis.com | `https://www.tricentis.com/` | `https://1688360.cc/track.js` |
-| mutualofomaha.com | `https://www.mutualofomaha.com/promo/medicare-supplement-insurance/456245-1` | `https://1688360.cc/track.js` |
-| insurance.hsbc.com.sg | `https://www.insurance.hsbc.com.sg/` | `https://1688360.cc/track.js?cb=1794847691583` |
+| edition.cnn.com | `https://edition.cnn.com/` | `https://cdn.optimizely.com/public/125375509/s/landingprod.js` |
+| zoom.com | `https://www.zoom.com/` | `https://cdn.optimizely.com/js/6395285578973184.js` |
+| foxnews.com | `https://www.foxnews.com/` | `https://cdn.confiant-integrations.net/gptprebidnative/202611121858/wrap.js` |
+| bbc.com | `https://www.bbc.com/news/articles/c6wy9lynq4qno` | `https://cdn.optimizely.com/public/4621041136/s/bbcx_prod.js` |
+| salesforce.com | `https://www.salesforce.com/` | `https://cdn.optimizely.com/js/22444972181.js` |
+| about.gitlab.com | `https://about.gitlab.com/whats-new/19-0/` | `https://cdn.optimizely.com/js/5113954737848320.js` |
+| ae.com | `https://www.ae.com/us/en` | `https://www.ae.com/resources/aa2a454dda92a6d073ca760a2537f00c14d00114d3583` |
+| hootsuite.com | `https://www.hootsuite.com/error/lost-owly` | `https://cdn.optimizely.com/js/4894383279964160.js` |
+| smartsheet.com | `https://www.smartsheet.com/` | `https://cdn.optimizely.com/js/752092193.js` |
+| wwws.airfrance.it | `https://wwws.airfrance.it/` | `https://jef1nimjiav4.eu.wpi.jscrambler.com/i0sqmdlgtfda/1588655105.js` |
+| virginmediao2.co.uk | `https://www.virginmediao2.co.uk/help/identity` | `https://cdn.optimizely.com/js/22914960707.js` |
+| stamps.com | `https://www.stamps.com/` | `https://cdn.optimizely.com/js/23755770403.js` |
+| tricentis.com | `https://www.tricentis.com/` | `https://cdn.optimizely.com/js/26508490611.js` |
+| mutualofomaha.com | `https://www.mutualofomaha.com/promo/medicare-supplement-insurance/456245-1` | `https://cdn.optimizely.com/js/25010540072.js` |
+| insurance.hsbc.com.sg | `https://www.insurance.hsbc.com.sg/` | `https://cdn.optimizely.com/js/20371380974.js` |
 
-Per-row caller evidence (which script issued the stealer request): Optimizely bundles on every row except foxnews.com (ad wrapper), ae.com (first-party bundle) and wwws.airfrance.it (Jscrambler-protected script).
+Per-row caller evidence lives in the third column: Optimizely bundles on every row except foxnews.com (ad wrapper), ae.com (first-party bundle) and wwws.airfrance.it (Jscrambler-protected script).
 
 {% include figure.html src="/assets/img/figure2-optimjack.jpg" alt="urlscan transaction list for zoom.com showing the primary request, redirect chain, the Optimizely bundle, and the OneTrust consent stub" caption="Figure 2. Zoom's transaction list: primary request, redirect chain, the Optimizely bundle — with the OneTrust stub alongside, gating but not sanitising it." width="1127" height="1280" %}
 
